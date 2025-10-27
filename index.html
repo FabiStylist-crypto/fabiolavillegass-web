@@ -8,19 +8,17 @@
   <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Tu hoja de estilos base (se respeta) -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Tu hoja de estilos base (usa el nombre real del archivo) -->
+  <link rel="stylesheet" href="estilo.css">
 
   <!-- Estilos de esta página -->
   <style>
-    /* -------- Tipografía base y tarjetas (apoya tu style.css) -------- */
     body{ font-family:Lato,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:#252525; }
     h2,h3,h4{ font-family:"Playfair Display",serif; }
     .card{ background:#F7F4EE; border-radius:16px; padding:14px; box-shadow:0 8px 20px rgba(0,0,0,.06); }
     .muted{ color:#656565; } .small{ font-size:.95rem; }
     .pill{ display:inline-block; padding:.35rem .75rem; border-radius:999px; background:#EEE6D9; color:#444; font-weight:600; font-size:.9rem; }
 
-    /* ========= HEADER DECORATIVO ========= */
     header.site-header{ padding:0 !important; }
     .header-surface{
       position: relative; margin: 16px auto 8px; padding: 28px 16px;
@@ -28,14 +26,14 @@
       box-shadow: 0 10px 24px rgba(0,0,0,.06);
       background-image:
         linear-gradient(135deg,#F3E9DB 0%, #EEE5D8 55%, #E7DFD2 100%),
-        url('assets/header-bg.jpg');
+        url('activos/header-bg.jpg');
       background-size: cover, cover; background-position: center, center;
       background-blend-mode: multiply;
     }
     .header-surface::after{
       content:""; position:absolute; inset:0; pointer-events:none;
       background:
-        radial-gradient(1200px 400px at 80% -10%, rgba(255,255,255,.35), transparent 60%) ,
+        radial-gradient(1200px 400px at 80% -10%, rgba(255,255,255,.35), transparent 60%),
         radial-gradient(900px 300px at -10% 110%, rgba(255,255,255,.25), transparent 60%),
         repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 2px, rgba(0,0,0,.02) 2px 4px);
       mix-blend-mode: soft-light;
@@ -45,7 +43,6 @@
       align-items:center !important; justify-content:center !important;
       gap:10px !important; margin:0 auto !important; text-align:center !important;
     }
-    .header-surface .logo{ line-height:0 !important; }
     .header-surface .logo img{
       display:block !important; margin:0 auto !important;
       width:auto !important; height:auto !important; max-height:180px !important;
@@ -64,56 +61,25 @@
       font-size: clamp(24px, 3.2vw, 36px) !important; line-height:1.15 !important;
     }
 
-    /* -------- Layout principal -------- */
-    .hero{
-      display:grid !important;
-      gap:16px;
-      grid-template-columns:1fr; /* móvil */
-    }
-    /* 2 columnas desde tablet */
-    @media (min-width:768px){
-      .hero{ grid-template-columns:1.6fr 1fr; }
-    }
+    .hero{ display:grid !important; gap:16px; grid-template-columns:1fr; }
+    @media (min-width:768px){ .hero{ grid-template-columns:1.6fr 1fr; } }
 
-    /* -------- Servicios -------- */
     .services{ display:grid; grid-template-columns:1fr; gap:10px; }
-
-    /* ADECUACIÓN: una sola fila + precio centrado */
     .service{
-      display:flex;
-      align-items:center;                /* centra verticalmente */
-      justify-content:space-between;
-      gap:12px;
-      background:#fff;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid #E7E2D7;
-      flex-wrap:nowrap;                  /* evita que salte a 2 filas en desktop */
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; background:#fff; padding:10px 12px; border-radius:12px; border:1px solid #E7E2D7;
+      flex-wrap:nowrap;
     }
-    .service > div:first-child{
-      min-width:0;                       /* permite que el texto se ajuste sin empujar el precio */
-    }
+    .service > div:first-child{ min-width:0; }
     .service h3{ margin:0; }
     .service .small{ display:block; }
+    .price{ font-weight:700; flex:0 0 220px; text-align:center; white-space:normal; }
 
-    .price{
-      font-weight:700;
-      flex:0 0 220px;                    /* ancho fijo para la “columna” del precio */
-      text-align:center;                 /* centra el costo */
-      white-space:normal;                /* si el precio es largo, que haga salto */
-    }
-
-    /* En móviles permitimos que el precio baje debajo y quede centrado */
     @media (max-width:560px){
       .service{ flex-wrap:wrap; }
-      .price{
-        flex:1 1 100%;
-        text-align:center;
-        margin-top:6px;
-      }
+      .price{ flex:1 1 100%; text-align:center; margin-top:6px; }
     }
 
-    /* -------- Foto lateral (hueco derecho) -------- */
     @media (min-width:980px){
       .side-gap-photo{
         height: clamp(360px, 28vh, 600px);
@@ -124,10 +90,8 @@
     }
     @media (max-width:979px){ .side-gap-photo{ display:none; } }
 
-    /* -------- Novias + Workshops en UNA columna (izquierda) -------- */
     .sections{ display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px; }
 
-    /* -------- Carrusel / Galería -------- */
     #gallery{ margin-top:18px; }
     .carousel{ position:relative; border-radius:16px; background:#F7F4EE; padding:10px 48px 56px; box-shadow:0 8px 20px rgba(0,0,0,.06); }
     .c-viewport{ position:relative; height:clamp(320px,50vh,520px); overflow:hidden; border-radius:12px; background:#EEE6D9; }
@@ -141,36 +105,30 @@
     .c-thumb.is-active{ border-color:#C9C2B2; }
     @media (max-width:680px){ .carousel{ padding:8px 40px 64px; } .c-viewport{ height:clamp(240px,42vh,360px); } .c-thumb{ width:52px; height:38px; } }
 
-    /* -------- Mapa embebido + botón Maps -------- */
     .map-embed{ position:relative; margin-top:8px; border-radius:14px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.06); height:220px; }
     .map-embed iframe{ width:100%; height:100%; border:0; display:block; }
     .map-open{ position:absolute; right:10px; bottom:10px; padding:.45rem .75rem; border-radius:999px; background:rgba(0,0,0,.55); color:#fff; font-size:12px; text-decoration:none; border:1px solid rgba(255,255,255,.4); backdrop-filter:blur(2px); }
     .map-open:hover{ background:rgba(0,0,0,.7); }
     @media (min-width:980px){ .map-embed{ height:260px; } }
 
-    /* -------- CTA final -------- */
     .cta-row{ display:inline-flex; gap:12px; align-items:center; justify-content:center; }
     .cta-btn{ padding:.9rem 1.25rem; border-radius:1rem; box-shadow:0 1px 2px rgba(0,0,0,.06); border:1px solid #D6D1C4; font-size:1rem; font-weight:600; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; text-decoration:none; }
     .cta-wa{ background:#EEDDC7; color:#3E3E3E; } .cta-ig{ background:#D6D1C4; color:#fff; }
     #cta-final{ border-top:1px solid rgba(0,0,0,.06); }
 
-    /* -------- Footer -------- */
     footer{ text-align:center; padding:14px 0; color:#444; }
-
-    /* -------- Asegurar que el mapa vaya primero en la columna derecha -------- */
     .card.center{ display:flex; flex-direction:column; gap:8px; }
-    .card.center .map-embed{ order:-1; } /* mapa arriba */
+    .card.center .map-embed{ order:-1; }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <!-- ===== HEADER ===== -->
     <header class="site-header">
       <div class="header-surface">
         <div class="brand">
           <div class="logo">
-            <img src="assets/logo.svg" alt="Logo de Fabiola Villegas">
+            <img src="activos/logo.svg" alt="Logo de Fabiola Villegas">
           </div>
           <div class="brand-text">
             <div class="subtitle"></div>
@@ -180,14 +138,13 @@
       <div class="top-ctas"></div>
     </header>
 
-    <!-- ===== CONTENIDO PRINCIPAL ===== -->
     <main>
       <section class="hero" id="home">
         <!-- Columna IZQUIERDA -->
         <div>
           <div class="intro">
             <h2>¡Hola!</h2>
-            <p>Soy <strong>Fabiola Villegas</strong>, estilista profesional con 10 años de experienci enfocada en técnicas de color, diseño y cuidado capilar, combino creatividad y precisión para resaltar tu estilo natural, cuidando siempre la salud y belleza de tu cabello.</p>
+            <p>Soy <strong>Fabiola Villegas</strong>, estilista profesional con 10 años de experiencia enfocada en técnicas de color, diseño y cuidado capilar. Combino creatividad y precisión para resaltar tu estilo natural, cuidando siempre la salud y belleza de tu cabello.</p>
 
             <div class="menu-card">
               <h3 style="margin-bottom:8px">Servicios</h3>
@@ -238,11 +195,10 @@
                     <h3>Workshop</h3>
                     <div class="small muted">Talleres y capacitaciones de peinado</div>
                   </div>
-                  <div class="price">"Personales o en Grupo"</div>
+                  <div class="price">Personales o en grupo</div>
                 </div>
               </div>
 
-              <!-- Políticas (estructura) -->
               <div class="policies" style="margin-top:12px">
                 <div class="policy-item"><strong>En peinado social:</strong></div>
                 <div class="policy-item"><strong>Anticipo:</strong> 10% del valor del servicio para reservar (no reembolsable). Confirmación con comprobante por WhatsApp.</div>
@@ -261,7 +217,6 @@
             </ol>
           </div>
 
-          <!-- Novias + Workshops en la misma columna -->
           <div class="sections" id="extras">
             <div class="card">
               <h3 style="margin:0 0 8px 0">Novias (locales y foráneas)</h3>
@@ -288,7 +243,6 @@
         <aside>
           <div style="position:sticky;top:20px">
             <div class="card center">
-              <!-- Mapa ARRIBA -->
               <div class="map-embed">
                 <iframe
                   id="mapFrame"
@@ -298,14 +252,15 @@
                 </iframe>
                 <a id="mapBtn" class="map-open" href="https://maps.app.goo.gl/RFWnkcmC7BvtQfgcA" target="_blank" rel="noopener">Abrir en Maps</a>
               </div>
-<div class="muted small" style="line-height:1.4">
+              <div class="muted small" style="line-height:1.4">
                 Av. Paseo de las Palmas 260-A-Segundo piso, Lomas - Virreyes, Lomas de Chapultepec, Miguel Hidalgo, 11000 Ciudad de México, CDMX
               </div>
             </div>
 
-              <div class="pill">Servicio a domicilio disponible (Consulta por WhatsApp)</div>
+            <div class="pill">Servicio a domicilio disponible (Consulta por WhatsApp)</div>
+
             <div class="side-gap-photo">
-              <img src="assets/fabiola.jpg" alt="Fabiola Villegas">
+              <img src="activos/fabiola.jpg" alt="Fabiola Villegas">
             </div>
 
             <div class="card" style="margin-top:12px">
@@ -324,92 +279,89 @@
           <button class="c-nav c-prev" aria-label="Anterior">‹</button>
 
           <div class="c-viewport">
-            <img class="c-slide"           src="assets/foto2.jpg"   alt="Foto 2">
-            <img class="c-slide"           src="assets/foto3.jpg"  alt="Foto 3">
-            <img class="c-slide"           src="assets/foto4.jpg"  alt="Foto 4">
-            <img class="c-slide"           src="assets/foto5.jpg"  alt="Foto 5">
-            <img class="c-slide"           src="assets/foto6.jpg"  alt="Foto 6">
-            <img class="c-slide"           src="assets/foto7.jpg"  alt="Foto 7">
-            <img class="c-slide"           src="assets/foto8.jpg"  alt="Foto 8">
-            <img class="c-slide"           src="assets/foto9.jpg"  alt="Foto 9">
-            <img class="c-slide"           src="assets/foto10.jpg" alt="Foto 10">
-            <img class="c-slide"           src="assets/foto11.jpg" alt="Foto 11">
-            <img class="c-slide"           src="assets/foto12.jpg"   alt="Foto 12">
-            <img class="c-slide"           src="assets/foto13.jpg"  alt="Foto 13">
-            <img class="c-slide"           src="assets/foto14.jpg"  alt="Foto 14">
-            <img class="c-slide"           src="assets/foto15.jpg"  alt="Foto 15">
-            <img class="c-slide"           src="assets/foto16.jpg"  alt="Foto 16">
-            <img class="c-slide"           src="assets/foto17.jpg"  alt="Foto 17">
-            <img class="c-slide"           src="assets/foto18.jpg"  alt="Foto 18">
-            <img class="c-slide"           src="assets/foto19.jpg"  alt="Foto 19">
-            <img class="c-slide"           src="assets/foto20.jpg" alt="Foto 20">
-            <img class="c-slide"           src="assets/foto21.jpg" alt="Foto 21">
-            <img class="c-slide"           src="assets/foto22.jpg" alt="Foto 22">
-            <img class="c-slide"           src="assets/foto23.jpg" alt="Foto 23">
-            <img class="c-slide"           src="assets/foto24.jpg"   alt="Foto 24">
-            <img class="c-slide"           src="assets/foto25.jpg"  alt="Foto 25">
-            <img class="c-slide"           src="assets/foto26.jpg"  alt="Foto 26">
-            <img class="c-slide"           src="assets/foto27.jpg"  alt="Foto 27">
-            <img class="c-slide"           src="assets/foto28.jpg"  alt="Foto 28">
-            <img class="c-slide"           src="assets/foto29.jpg"  alt="Foto 29">
-            <img class="c-slide"           src="assets/foto30.jpg"  alt="Foto 30">
-            </div>
+            <img class="c-slide is-active" src="activos/foto2.jpg"   alt="Foto 2">
+            <img class="c-slide"           src="activos/foto3.jpg"  alt="Foto 3">
+            <img class="c-slide"           src="activos/foto4.jpg"  alt="Foto 4">
+            <img class="c-slide"           src="activos/foto5.jpg"  alt="Foto 5">
+            <img class="c-slide"           src="activos/foto6.jpg"  alt="Foto 6">
+            <img class="c-slide"           src="activos/foto7.jpg"  alt="Foto 7">
+            <img class="c-slide"           src="activos/foto8.jpg"  alt="Foto 8">
+            <img class="c-slide"           src="activos/foto9.jpg"  alt="Foto 9">
+            <img class="c-slide"           src="activos/foto10.jpg" alt="Foto 10">
+            <img class="c-slide"           src="activos/foto11.jpg" alt="Foto 11">
+            <img class="c-slide"           src="activos/foto12.jpg" alt="Foto 12">
+            <img class="c-slide"           src="activos/foto13.jpg" alt="Foto 13">
+            <img class="c-slide"           src="activos/foto14.jpg" alt="Foto 14">
+            <img class="c-slide"           src="activos/foto15.jpg" alt="Foto 15">
+            <img class="c-slide"           src="activos/foto16.jpg" alt="Foto 16">
+            <img class="c-slide"           src="activos/foto17.jpg" alt="Foto 17">
+            <img class="c-slide"           src="activos/foto18.jpg" alt="Foto 18">
+            <img class="c-slide"           src="activos/foto19.jpg" alt="Foto 19">
+            <img class="c-slide"           src="activos/foto20.jpg" alt="Foto 20">
+            <img class="c-slide"           src="activos/foto21.jpg" alt="Foto 21">
+            <img class="c-slide"           src="activos/foto22.jpg" alt="Foto 22">
+            <img class="c-slide"           src="activos/foto23.jpg" alt="Foto 23">
+            <img class="c-slide"           src="activos/foto24.jpg" alt="Foto 24">
+            <img class="c-slide"           src="activos/foto25.jpg" alt="Foto 25">
+            <img class="c-slide"           src="activos/foto26.jpg" alt="Foto 26">
+            <img class="c-slide"           src="activos/foto27.jpg" alt="Foto 27">
+            <img class="c-slide"           src="activos/foto28.jpg" alt="Foto 28">
+            <img class="c-slide"           src="activos/foto29.jpg" alt="Foto 29">
+            <img class="c-slide"           src="activos/foto30.jpg" alt="Foto 30">
+          </div>
 
           <button class="c-nav c-next" aria-label="Siguiente">›</button>
 
           <div class="c-thumbs">
-            <button class="c-thumb"><img src="assets/foto2.jpg"   alt=""></button>
-            <button class="c-thumb"><img src="assets/foto3.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto4.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto5.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto6.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto7.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto8.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto9.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto10.jpg" alt=""></button>
-            <button class="c-thumb"><img src="assets/foto11.jpg" alt=""></button>
-            <button class="c-thumb"><img src="assets/foto12.jpg"   alt=""></button>
-            <button class="c-thumb"><img src="assets/foto13.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto14.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto15.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto16.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto17.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto18.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto19.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto20.jpg" alt=""></button>
-            <button class="c-thumb"><img src="assets/foto21.jpg" alt=""></button>
-            <button class="c-thumb"><img src="assets/foto22.jpg"   alt=""></button>
-            <button class="c-thumb"><img src="assets/foto23.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto24.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto25.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto26.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto27.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto28.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto29.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/foto30.jpg" alt=""></button>
-        </div>
+            <button class="c-thumb is-active"><img src="activos/foto2.jpg"   alt=""></button>
+            <button class="c-thumb"><img src="activos/foto3.jpg"  alt=""></button>
+            <button class="c-thumb"><img src="activos/foto4.jpg"  alt=""></button>
+            <button class="c-thumb"><img src="activos/foto5.jpg"  alt=""></button>
+            <button class="c-thumb"><img src="activos/foto6.jpg"  alt=""></button>
+            <button class="c-thumb"><img src="activos/foto7.jpg"  alt=""></button>
+            <button class="c-thumb"><img src="activos/foto8.jpg"  alt=""></button>
+            <button class="c-thumb"><img src="activos/foto9.jpg"  alt=""></button>
+            <button class="c-thumb"><img src="activos/foto10.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto11.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto12.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto13.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto14.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto15.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto16.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto17.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto18.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto19.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto20.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto21.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto22.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto23.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto24.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto25.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto26.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto27.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto28.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto29.jpg" alt=""></button>
+            <button class="c-thumb"><img src="activos/foto30.jpg" alt=""></button>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- CTA ÚNICO AL FINAL -->
     <section id="cta-final" class="py-10">
       <div class="text-center">
         <div class="cta-row">
-          <a href="https://wa.me/525561117810?text=Hola%2C%20me%20gustaría%C3%ADa%20agendar%20una%20cita.%20%C2%BFTienen%20disponibilidad%20esta%20semana%3F" target="_blank" rel="noopener" class="cta-btn cta-wa">WhatsApp</a>
+          <a href="https://wa.me/525561117810?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita.%20%C2%BFTienen%20disponibilidad%20esta%20semana%3F" target="_blank" rel="noopener" class="cta-btn cta-wa">WhatsApp</a>
           <a href="https://instagram.com/faby_ville28" target="_blank" rel="noopener" class="cta-btn cta-ig">Instagram</a>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
       <div style="margin-bottom:8px">Espacio seguro y respetuoso • Todos son bienvenidos</div>
       <div class="small muted">© <span id="year"></span> Hair Artist Styling Studio • Fabiola Villegas</div>
     </footer>
   </div>
 
-  <!-- Carrusel JS (ligero) -->
   <script>
   (function(){
     const car = document.querySelector('[data-carousel]');
@@ -449,12 +401,8 @@
   })();
   </script>
 
-  <!-- Año dinámico del footer -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- Mapa: abre Apple Maps en iOS y Google Maps en otros -->
   <script>
   (function(){
     var address   = 'Av. Paseo de las Palmas 260-A-Segundo piso, Lomas - Virreyes, Lomas de Chapultepec, Miguel Hidalgo, 11000 Ciudad de México, CDMX';
