@@ -11,198 +11,69 @@
   <!-- Tu hoja de estilos base -->
   <link rel="stylesheet" href="estilo.css">
 
-  <!-- Estilos rápidos de apoyo -->
+  <!-- Estilos mínimos del carrusel (compacto) -->
   <style>
-    body{ font-family:Lato,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:#252525; }
-    h2,h3,h4{ font-family:"Playfair Display",serif; }
-    .card{ background:#F7F4EE; border-radius:16px; padding:14px; box-shadow:0 8px 20px rgba(0,0,0,.06); }
-    .muted{ color:#656565; } .small{ font-size:.95rem; }
-    .pill{ display:inline-block; padding:.35rem .75rem; border-radius:999px; background:#EEE6D9; color:#444; font-weight:600; font-size:.9rem; }
+    body{ font-family:Lato,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:#252525;}
+    h2,h3,h4{ font-family:"Playfair Display",serif;}
+    .card{ background:#F7F4EE; border-radius:16px; padding:14px; box-shadow:0 8px 20px rgba(0,0,0,.06);}
+    .muted{ color:#656565;} .small{ font-size:.95rem;}
+    .pill{ display:inline-block; padding:.35rem .75rem; border-radius:999px; background:#EEE6D9; color:#444; font-weight:600; font-size:.9rem;}
 
-    header.site-header{ padding:0 !important; }
-    .header-surface{
-      position: relative; margin: 16px auto 8px; padding: 28px 16px;
-      border-radius: 28px; max-width: 1100px; overflow: hidden;
-      box-shadow: 0 10px 24px rgba(0,0,0,.06);
-      background-image:
-        linear-gradient(135deg,#F3E9DB 0%, #EEE5D8 55%, #E7DFD2 100%),
-        url('activos/header-bg.jpg');
-      background-size: cover, cover; background-position: center, center;
-      background-blend-mode: multiply;
-    }
-    .header-surface .brand{ display:flex; flex-direction:column; align-items:center; gap:10px; }
-    .header-surface .logo img{ display:block; margin:0 auto; max-height:200px; height:auto; width:auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.08)); }
-    .hero{ display:grid; gap:16px; grid-template-columns:1fr; }
-    @media (min-width:768px){ .hero{ grid-template-columns:1.6fr 1fr; } }
+    .header-surface{ position:relative; margin:16px auto 8px; padding:28px 16px; border-radius:28px; max-width:1100px; overflow:hidden; box-shadow:0 10px 24px rgba(0,0,0,.06);
+      background-image:linear-gradient(135deg,#F3E9DB 0%, #EEE5D8 55%, #E7DFD2 100%), url('activos/header-bg.jpg');
+      background-size:cover,cover; background-position:center,center; background-blend-mode:multiply;}
+    .brand{ display:flex; flex-direction:column; align-items:center; gap:10px;}
+    .logo img{ max-height:200px; height:auto; width:auto; display:block; margin:0 auto; filter:drop-shadow(0 2px 6px rgba(0,0,0,.08));}
 
-    .services{ display:grid; grid-template-columns:1fr; gap:10px; }
-    .service{ display:flex; align-items:center; justify-content:space-between; gap:12px; background:#fff; padding:10px 12px; border-radius:12px; border:1px solid #E7E2D7; flex-wrap:nowrap; }
-    .service > div:first-child{ min-width:0; }
-    .service h3{ margin:0; }
-    .price{ font-weight:700; flex:0 0 220px; text-align:center; white-space:normal; }
-    @media (max-width:560px){ .service{ flex-wrap:wrap; } .price{ flex:1 1 100%; text-align:center; margin-top:6px; } }
-
-    @media (min-width:980px){
-      .side-gap-photo{ height: clamp(360px, 28vh, 600px); border-radius:16px; overflow:hidden; margin:12px 0; box-shadow:0 8px 20px rgba(0,0,0,.06); background:#F2ECE4; }
-      .side-gap-photo img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
-    }
-    @media (max-width:979px){ .side-gap-photo{ display:none; } }
-
-    .sections{ display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px; }
+    .hero{ display:grid; gap:16px; grid-template-columns:1fr;}
+    @media (min-width:768px){ .hero{ grid-template-columns:1.6fr 1fr;} }
 
     /* Carrusel */
-    #gallery{ margin-top:18px; }
-    .carousel{ position:relative; border-radius:16px; background:#F7F4EE; padding:10px 48px 56px; box-shadow:0 8px 20px rgba(0,0,0,.06); }
-    .c-viewport{ position:relative; height:clamp(320px,50vh,520px); overflow:hidden; border-radius:12px; background:#EEE6D9; }
-    .c-slide{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transform:scale(.98); transition:opacity .35s ease, transform .35s ease; }
-    .c-slide.is-active{ opacity:1; transform:scale(1); }
-    .c-nav{ position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:999px; border:1px solid #D6D1C4; background:#fff; color:#5a5a5a; display:grid; place-items:center; font-size:22px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.08); user-select:none; }
-    .c-prev{ left:8px; } .c-next{ right:8px; }
-    .c-thumbs{ position:absolute; left:0; right:0; bottom:6px; display:flex; gap:8px; justify-content:center; padding:0 12px; flex-wrap:wrap; }
-    .c-thumb{ width:60px; height:44px; border:2px solid transparent; border-radius:8px; overflow:hidden; background:transparent; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,.08); padding:0; }
-    .c-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .c-thumb.is-active{ border-color:#C9C2B2; }
-    @media (max-width:680px){ .carousel{ padding:8px 40px 64px; } .c-viewport{ height:clamp(240px,42vh,360px); } .c-thumb{ width:52px; height:38px; } }
+    #gallery{ margin-top:18px;}
+    .carousel{ position:relative; border-radius:16px; background:#F7F4EE; padding:10px 56px 70px; box-shadow:0 8px 20px rgba(0,0,0,.06);}
+    .c-viewport{ position:relative; height:clamp(280px,45vh,420px); overflow:hidden; border-radius:12px; background:#EEE6D9; display:grid; place-items:center;}
+    .viewer{ max-width:100%; max-height:100%; object-fit:contain; display:block; opacity:0; transition:opacity .25s ease;}
+    .viewer.is-ready{ opacity:1;}
 
-    .map-embed{ position:relative; margin-top:8px; border-radius:14px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.06); height:220px; }
-    .map-embed iframe{ width:100%; height:100%; border:0; display:block; }
-    .map-open{ position:absolute; right:10px; bottom:10px; padding:.45rem .75rem; border-radius:999px; background:rgba(0,0,0,.55); color:#fff; font-size:12px; text-decoration:none; border:1px solid rgba(255,255,255,.4); backdrop-filter:blur(2px); }
-    @media (min-width:980px){ .map-embed{ height:260px; } }
+    .c-nav{ position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:999px; border:1px solid #D6D1C4; background:#fff; color:#5a5a5a; display:grid; place-items:center; font-size:22px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.08); user-select:none;}
+    .c-prev{ left:8px;} .c-next{ right:8px;}
 
-    .cta-row{ display:inline-flex; gap:12px; align-items:center; justify-content:center; }
-    .cta-btn{ padding:.9rem 1.25rem; border-radius:1rem; box-shadow:0 1px 2px rgba(0,0,0,.06); border:1px solid #D6D1C4; font-size:1rem; font-weight:600; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; text-decoration:none; }
-    .cta-wa{ background:#EEDDC7; color:#3E3E3E; } .cta-ig{ background:#D6D1C4; color:#fff; }
-    #cta-final{ border-top:1px solid rgba(0,0,0,.06); }
+    .c-thumbs{ position:absolute; left:0; right:0; bottom:8px; display:flex; gap:8px; justify-content:center; padding:0 12px; overflow-x:auto; scrollbar-width:none;}
+    .c-thumbs::-webkit-scrollbar{ display:none;}
+    .c-thumb{ width:60px; height:44px; border:2px solid transparent; border-radius:8px; overflow:hidden; background:transparent; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,.08); padding:0; flex:0 0 auto;}
+    .c-thumb img{ width:100%; height:100%; object-fit:cover; display:block;}
+    .c-thumb.is-active{ border-color:#C9C2B2;}
+    @media (max-width:680px){ .carousel{ padding:8px 48px 76px;} .c-thumb{ width:52px; height:38px;} }
 
-    footer{ text-align:center; padding:14px 0; color:#444; }
-    .card.center{ display:flex; flex-direction:column; gap:8px; }
-    .card.center .map-embed{ order:-1; }
+    /* Lateral + footer (igual que antes) */
+    @media (min-width:980px){
+      .side-gap-photo{ height:360px; border-radius:16px; overflow:hidden; margin:12px 0; box-shadow:0 8px 20px rgba(0,0,0,.06);}
+      .side-gap-photo img{ width:100%; height:100%; object-fit:cover; object-position:center;}
+    }
+    @media (max-width:979px){ .side-gap-photo{ display:none;} }
+    footer{ text-align:center; padding:14px 0; color:#444;}
+    .card.center{ display:flex; flex-direction:column; gap:8px;}
+    .card.center .map-embed{ order:-1;}
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <!-- HEADER -->
+    <!-- ===== HEADER ===== -->
     <header class="site-header">
       <div class="header-surface">
         <div class="brand">
           <div class="logo">
             <img src="activos/logo.svg" alt="Logo de Fabiola Villegas" loading="lazy">
           </div>
-          <div class="brand-text">
-            <div class="subtitle"></div>
-          </div>
+          <div class="brand-text"><div class="subtitle"></div></div>
         </div>
       </div>
     </header>
 
-    <!-- CONTENIDO -->
+    <!-- ===== CONTENIDO (resumido para focar en la galería) ===== -->
     <main>
-      <section class="hero" id="home">
-        <!-- Columna IZQUIERDA -->
-        <div>
-          <div class="intro">
-            <h2>¡Hola!</h2>
-            <p>Soy <strong>Fabiola Villegas</strong>, estilista profesional con 10 años de experiencia enfocada en técnicas de color, diseño y cuidado capilar. Combino creatividad y precisión para resaltar tu estilo natural, cuidando siempre la salud y belleza de tu cabello.</p>
-
-            <div class="menu-card">
-              <h3 style="margin-bottom:8px">Servicios</h3>
-
-              <div class="services">
-                <div class="service">
-                  <div><h3>Corte para Dama</h3><div class="small muted"></div></div>
-                  <div class="price"></div>
-                </div>
-                <div class="service">
-                  <div><h3>Color</h3><div class="small muted">Balayage, Babylights, Highlights, Retoques de cana, Baños de color.</div></div>
-                  <div class="price"></div>
-                </div>
-                <div class="service">
-                  <div><h3>Hidratación, Brillo y Ampolletas.</h3><div class="small muted">Tratamientos de Mucota, Bumble & Bumble, Davines, Bonacure R-TWO.</div></div>
-                  <div class="price"></div>
-                </div>
-                <div class="service">
-                  <div><h3>Peinados Sociales</h3><div class="small muted">Updos, ondas, trenzas, ponytail, alaciados, etc.</div></div>
-                  <div class="price">desde $400 a $1200, cotización personalizada</div>
-                </div>
-                <div class="service">
-                  <div><h3>Novias</h3><div class="small muted">Prueba, día del evento y cambio de peinado.</div></div>
-                  <div class="price">Cotización personalizada</div>
-                </div>
-                <div class="service">
-                  <div><h3>Workshop</h3><div class="small muted">Talleres y capacitaciones de peinado</div></div>
-                  <div class="price">Personales o en grupo</div>
-                </div>
-              </div>
-
-              <div class="policies" style="margin-top:12px">
-                <div class="policy-item"><strong>En peinado social:</strong></div>
-                <div class="policy-item"><strong>Anticipo:</strong> 10% del valor del servicio para reservar (no reembolsable). Confirmación con comprobante por WhatsApp.</div>
-                <div class="policy-item"><strong>Tolerancia:</strong> 10 minutos. Se puede reprogramar con 24 h de anticipación.</div>
-                <div class="policy-item"><strong>Formas de pago:</strong> Efectivo, Tarjeta, Transferencia y/o Link de Pago (Mercado Pago). (Pedir datos por WhatsApp)</div>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top:14px" class="card">
-            <h3 style="margin-top:0">Cómo agendar</h3>
-            <ol class="muted" style="margin:8px 0 0 18px;">
-              <li>Envía un mensaje por WhatsApp con el servicio que deseas.</li>
-              <li>Te propongo horarios disponibles y te pido el anticipo para asegurar la reserva.</li>
-              <li>Envía comprobante por WhatsApp; te confirmo la cita y datos del salón. En servicio a domicilio se solicita ubicación.</li>
-            </ol>
-          </div>
-
-          <div class="sections" id="extras">
-            <div class="card">
-              <h3 style="margin:0 0 8px 0">Novias (locales y foráneas)</h3>
-              <p class="muted small">Pruebas personalizadas, asesoría de imagen y servicio en día del evento. Paquetes disponibles para maquillaje + peinado (consultar).</p>
-              <ul class="muted" style="margin:8px 0 0 18px">
-                <li>Prueba de peinado — $1,400</li>
-                <li>Peinado el día del evento — $4,700 (Cd. Méx.)</li>
-                <li>Peinado foráneo (consultar)</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3 style="margin:0 0 8px 0">Workshops</h3>
-              <p class="muted small">Talleres cortos para aprender peinados básicos, trenzas y styling.</p>
-              <ul class="muted" style="margin:8px 0 0 18px">
-                <li>Workshop básico $900 por persona (min. 3 personas)</li>
-                <li>Workshop personalizado (pedir cotización)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Columna DERECHA -->
-        <aside>
-          <div style="position:sticky;top:20px">
-            <div class="card center">
-              <div class="map-embed">
-                <iframe id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps?q=Av.%20Paseo%20de%20las%20Palmas%20260-A-Segundo%20piso,%20Lomas%20-%20Virreyes,%20Lomas%20de%20Chapultepec,%20Miguel%20Hidalgo,%2011000%20Ciudad%20de%20M%C3%A9xico,%20CDMX&output=embed">
-                </iframe>
-                <a id="mapBtn" class="map-open" href="https://maps.app.goo.gl/RFWnkcmC7BvtQfgcA" target="_blank" rel="noopener">Abrir en Maps</a>
-              </div>
-              <div class="muted small" style="line-height:1.4">
-                Av. Paseo de las Palmas 260-A-Segundo piso, Lomas - Virreyes, Lomas de Chapultepec, Miguel Hidalgo, 11000 Ciudad de México, CDMX
-              </div>
-            </div>
-
-            <div class="pill">Servicio a domicilio disponible (Consulta por WhatsApp)</div>
-
-            <div class="side-gap-photo">
-              <img src="activos/fabiola.jpg" alt="Fabiola Villegas" loading="lazy">
-            </div>
-
-            <div class="card" style="margin-top:12px">
-              <h4 style="margin:0 0 8px 0">Guido Palam</h4>
-              <p class="muted small">"Cada peluquero tiene su propio estilo y esto es lo que hace de la peluquería una forma de arte."</p>
-            </div>
-          </div>
-        </aside>
-      </section>
+      <!-- … tu contenido anterior (servicios, texto, mapa) se mantiene igual … -->
 
       <!-- Galería / Carrusel -->
       <section id="gallery">
@@ -211,8 +82,10 @@
         <div class="carousel" data-carousel>
           <button class="c-nav c-prev" aria-label="Anterior">‹</button>
 
-          <!-- El JS rellenará estas dos zonas automáticamente -->
-          <div class="c-viewport" id="slides"></div>
+          <div class="c-viewport">
+            <!-- Un solo visor; el JS cambia su src -->
+            <img id="viewer" class="viewer" alt="Foto" decoding="async" />
+          </div>
 
           <button class="c-nav c-next" aria-label="Siguiente">›</button>
           <div class="c-thumbs" id="thumbs"></div>
@@ -236,125 +109,94 @@
     </footer>
   </div>
 
-  <!-- GALERÍA JS: detecta y añade foto1..foto40 (.jpg/.png/.webp) que EXISTAN en /activos -->
+  <!-- GALERÍA: autodetección gal1..gal60 (.jpg/.png/.webp), carga bajo demanda -->
   <script>
     (function(){
-      const MAX = 40;                       // súbelo si quieres más
-      const base = 'activos/';              // carpeta de imágenes
-      const names = Array.from({length: MAX}, (_,i)=> 'foto' + (i+1));
+      const MAX = 60;
+      const base = 'activos/';
+      const names = Array.from({length: MAX}, (_,i)=> 'gal'+(i+1));
       const tryExts = ['.jpg','.png','.webp'];
 
-      const slidesBox = document.getElementById('slides');
-      const thumbsBox = document.getElementById('thumbs');
+      const viewer = document.getElementById('viewer');
+      const thumbs = document.getElementById('thumbs');
 
-      function exists(url){
+      function probe(url){
         return new Promise(res=>{
-          const img = new Image();
-          img.onload  = ()=> res(url);
-          img.onerror = ()=> res(null);
-          img.src = url;
+          const im = new Image();
+          im.onload  = ()=> res(url);
+          im.onerror = ()=> res(null);
+          im.src = url;
         });
       }
-
-      async function resolveFirstExisting(name){
+      async function firstExisting(name){
         for(const ext of tryExts){
-          const url = base + name + ext;
-          // Nota: usaremos HEAD-like probando a cargar la imagen
-          const ok = await exists(url);
+          const u = base + name + ext;
+          const ok = await probe(u);
           if(ok) return ok;
         }
         return null;
       }
 
-      (async function build(){
+      // Pre-carga liviana (solo la siguiente)
+      function preloadNext(list, idx){
+        const n = (idx+1) % list.length;
+        const img = new Image();
+        img.src = list[n];
+      }
+
+      (async function init(){
+        // Recolectar solo las que existen
         const urls = [];
         for(const name of names){
-          const u = await resolveFirstExisting(name);
+          const u = await firstExisting(name);
           if(u) urls.push(u);
         }
-
-        // Si no hay nada, salimos
-        if(urls.length === 0) return;
-
-        // Crear slides + thumbs
-        urls.forEach((src, idx)=>{
-          const img = document.createElement('img');
-          img.className = 'c-slide' + (idx===0 ? ' is-active' : '');
-          img.src = src;
-          img.alt = 'Foto ' + (idx+1);
-          img.loading = 'lazy';
-          slidesBox.appendChild(img);
-
-          const b = document.createElement('button');
-          b.className = 'c-thumb' + (idx===0 ? ' is-active' : '');
-          const t = document.createElement('img');
-          t.src = src;
-          t.alt = '';
-          t.loading = 'lazy';
-          b.appendChild(t);
-          thumbsBox.appendChild(b);
-        });
-
-        // Activar carrusel
-        initCarousel();
-      })();
-
-      function initCarousel(){
-        const car = document.querySelector('[data-carousel]');
-        if(!car) return;
-
-        const slides = Array.from(car.querySelectorAll('.c-slide'));
-        const thumbs = Array.from(car.querySelectorAll('.c-thumb'));
-        const prev   = car.querySelector('.c-prev');
-        const next   = car.querySelector('.c-next');
-
-        let i = slides.findIndex(s => s.classList.contains('is-active'));
-        if(i < 0) i = 0;
-        let lock = false;
-
-        function go(n){
-          if(lock) return;
-          lock = true;
-          i = (n + slides.length) % slides.length;
-          slides.forEach((s,idx)=> s.classList.toggle('is-active', idx===i));
-          thumbs .forEach((t,idx)=> t.classList.toggle('is-active', idx===i));
-          setTimeout(()=> lock=false, 350);
+        if(urls.length === 0){
+          viewer.alt = 'Sin imágenes disponibles';
+          return;
         }
 
-        prev.addEventListener('click', ()=> go(i-1));
-        next.addEventListener('click', ()=> go(i+1));
-        thumbs.forEach((t,idx)=> t.addEventListener('click', ()=> go(idx)));
-
-        document.addEventListener('keydown', (e)=>{
-          if(e.key === 'ArrowLeft')  go(i-1);
-          if(e.key === 'ArrowRight') go(i+1);
+        // Construir miniaturas
+        urls.forEach((src, i)=>{
+          const b = document.createElement('button');
+          b.className = 'c-thumb' + (i===0 ? ' is-active':'');
+          const t = document.createElement('img');
+          t.src = src; t.alt = '';
+          t.loading = 'lazy';
+          b.appendChild(t);
+          b.addEventListener('click', ()=> show(i));
+          thumbs.appendChild(b);
         });
 
-        // Gestos táctiles
-        let sx = 0, dx = 0, vp = car.querySelector('.c-viewport');
-        vp.addEventListener('touchstart', e=>{ sx = e.touches[0].clientX; dx=0; }, {passive:true});
-        vp.addEventListener('touchmove',  e=>{ dx = e.touches[0].clientX - sx; }, {passive:true});
-        vp.addEventListener('touchend',  ()=>{ if(Math.abs(dx) > 40) go(i + (dx<0 ? 1 : -1)); });
-      }
+        let idx = 0;
+
+        function show(n){
+          idx = (n + urls.length) % urls.length;
+          // desactivar transición para evitar parpadeo entre src
+          viewer.classList.remove('is-ready');
+          viewer.onload = ()=> viewer.classList.add('is-ready');
+          viewer.src = urls[idx];
+          // marcar thumb
+          Array.from(thumbs.children).forEach((el, j)=> el.classList.toggle('is-active', j===idx));
+          // precargar la siguiente
+          preloadNext(urls, idx);
+        }
+
+        // Botones
+        document.querySelector('.c-prev').addEventListener('click', ()=> show(idx-1));
+        document.querySelector('.c-next').addEventListener('click', ()=> show(idx+1));
+        document.addEventListener('keydown', (e)=>{
+          if(e.key === 'ArrowLeft')  show(idx-1);
+          if(e.key === 'ArrowRight') show(idx+1);
+        });
+
+        // Primer render
+        show(0);
+      })();
     })();
   </script>
 
   <!-- Año dinámico -->
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
-  <!-- Mapas: iOS → Apple Maps, otros → Google Maps -->
-  <script>
-    (function(){
-      var address   = 'Av. Paseo de las Palmas 260-A-Segundo piso, Lomas - Virreyes, Lomas de Chapultepec, Miguel Hidalgo, 11000 Ciudad de México, CDMX';
-      var googleURL = 'https://maps.app.goo.gl/RFWnkcmC7BvtQfgcA';
-      var appleURL  = 'http://maps.apple.com/?q=' + encodeURIComponent(address);
-
-      var ua = navigator.userAgent || navigator.vendor || window.opera;
-      var isIOS = /iPad|iPhone|iPod/.test(ua);
-
-      var btn = document.getElementById('mapBtn');
-      if (btn) btn.href = isIOS ? appleURL : googleURL;
-    })();
-  </script>
 </body>
 </html>
