@@ -1,0 +1,102 @@
+
+:root{
+  --peanut: #B99A87;
+  --cream: #F3EDE6;
+  --chalk-beige:#EDE6DA;
+  --neutral:#C9C2B2;
+  --white-beige:#F8F6F2;
+  --peach-cream:#F2DDD0;
+  --text:#222222;
+  --muted:#707070;
+  --radius:14px;
+  --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Lato", system-ui, Arial, sans-serif;
+  color:var(--text);
+  background:var(--white-beige);
+  line-height:1.45;
+}
+
+a{color:inherit;text-decoration:none}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px;}
+
+header{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 0 6px;
+}
+.brand{display:flex;gap:14px;align-items:center}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-img{width:84px;height:84px;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+h1{margin:0;font-family:"Playfair Display",serif;font-weight:600;font-size:22px;color:var(--text)}
+.subtitle{font-size:13px;color:var(--muted);margin-top:4px}
+
+.top-ctas{display:flex;gap:10px;align-items:center}
+.btn{
+  display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;
+  text-decoration:none;font-weight:600;font-size:14px;border:0;cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,0.04)
+}
+.whatsapp{background:var(--peach-cream);color:var(--text)}
+.instagram{background:var(--neutral);color:#fff}
+.agendar{background:var(--peanut);color:#fff}
+
+main{margin-top:18px}
+.hero{
+  display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start;margin-bottom:18px;
+}
+.intro{
+  background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.95));
+  padding:22px;border-radius:var(--radius);box-shadow:0 8px 26px rgba(6,6,6,0.06);
+}
+.intro h2{font-family:"Playfair Display",serif;margin-bottom:6px}
+.intro p{margin:8px 0;color:var(--muted)}
+
+.menu-card{
+  background:var(--white-beige);padding:16px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)
+}
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+.service{
+  background:transparent;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.service h3{margin:0;font-size:15px;font-weight:700;font-family:"Playfair Display",serif}
+.price{color:var(--peanut);font-weight:700}
+
+.policies{display:flex;flex-direction:column;gap:12px;margin-top:14px;font-size:14px;color:var(--muted)}
+.policy-item{background:var(--chalk-beige);padding:12px;border-radius:10px}
+
+.sections{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.card{padding:16px;border-radius:12px;background:linear-gradient(180deg,var(--cream),#fff);box-shadow:0 6px 20px rgba(0,0,0,0.04)}
+
+.gallery{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gallery img{width:100%;height:180px;object-fit:cover;border-radius:12px;display:block}
+
+footer{margin-top:22px;padding:18px;border-top:1px solid rgba(0,0,0,0.04);text-align:center;color:var(--muted);font-size:14px}
+
+/* Floating WhatsApp button */
+.fab{
+  position:fixed;right:18px;bottom:18px;z-index:999;display:flex;flex-direction:column;gap:10px;
+}
+.fab a{display:inline-flex;align-items:center;gap:10px;background:var(--peanut);color:#fff;padding:12px 14px;border-radius:999px;font-weight:700;box-shadow:0 8px 22px rgba(0,0,0,0.12)}
+.fab a.instagram{background:var(--neutral);color:#fff}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .services{grid-template-columns:repeat(1,1fr)}
+  .sections{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .logo-img{width:60px;height:60px}
+  .gallery img{height:140px}
+}
