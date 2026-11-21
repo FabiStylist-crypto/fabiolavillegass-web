@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reservar cita · Faby Villegas Stylist</title>
+<meta name="theme-color" content="#F3E9DB">
+<style>
+  html, body { margin: 0; height: 100%; background: #F8F6F2; }
+  body { display: flex; flex-direction: column; font-family: Lato, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #3a3a3a; }
+  header { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 6px 12px; background: #F3E9DB; border-bottom: 1px solid #E7E2D7; }
+  header img { display: block; height: 46px; width: auto; }
+  main { position: relative; flex: 1 1 auto; min-height: 0; overflow: auto; -webkit-overflow-scrolling: touch; }
+  iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  #cargando { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: #F8F6F2; transition: opacity .35s; }
+  #cargando.fuera { opacity: 0; pointer-events: none; }
+  .giro { width: 34px; height: 34px; border-radius: 50%; border: 3px solid #E7E2D7; border-top-color: #8A6A57; animation: giro .9s linear infinite; }
+  @keyframes giro { to { transform: rotate(360deg); } }
+  #cargando p { margin: 0; font-size: 15px; color: #656565; }
+  #otra { display: none; color: #8A6A57; font-size: 14px; }
+</style>
+</head>
+<body>
+<header><a href="./" aria-label="Faby Villegas Stylist"><img src="assets/logo.svg" alt="Faby Villegas Stylist" onerror="this.style.display='none'"></a></header>
+<main>
+  <iframe id="agenda" title="Reservar cita" allow="clipboard-write"></iframe>
+  <div id="cargando"><div class="giro"></div><p>Cargando la agenda…</p><a id="otra" href="#">¿No carga? Ábrela aquí</a></div>
+</main>
+<script>
+  // Página creada por la agenda de citas. Si cambias de app, vuelve a copiar este código desde Ajustes.
+  var APP = "https://script.google.com/a/~/macros/s/AKfycbwowJ3k2cBFWFHUZ8AM5Bd_XrgIrCSljmaWm_5xuC5tIegP883ARMalUiOZt8CNqwsc/exec";
+  var marco = document.getElementById("agenda"), carga = document.getElementById("cargando"), otra = document.getElementById("otra");
+  var destino = APP + (location.search || "");
+  marco.src = destino; otra.href = destino;
+  function listo() { if (carga.className) return; carga.className = "fuera"; setTimeout(function () { carga.style.display = "none"; }, 400); }
+  window.addEventListener("message", function (e) { var d = e.data; if (d && d.tipo === "agenda-citas") listo(); });
+  marco.addEventListener("load", function () { setTimeout(listo, 4000); });
+  setTimeout(function () { otra.style.display = "block"; }, 12000);
+</script>
+</body>
+</html>
