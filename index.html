@@ -1,430 +1,511 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hair Artist Styling Studio | Fabiola Villegas</title>
-
-  <!-- Tipografías -->
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Tu hoja de estilos base (se respeta) -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Estilos de esta página -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Faby Villegas · Hair Artist Styling Studio</title>
+  <meta name="description" content="Faby Villegas, estilista en Lomas de Chapultepec: color, peinados sociales, novias y workshops. Agenda tu cita en línea.">
+  <meta name="theme-color" content="#F7F1EE">
+  <meta property="og:title" content="Faby Villegas · Hair Artist Styling Studio">
+  <meta property="og:description" content="Color, peinados y novias en Lomas de Chapultepec. Agenda tu cita en línea.">
+  <meta property="og:image" content="assets/photo19.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* -------- Tipografía base y tarjetas (apoya tu style.css) -------- */
-    body{ font-family:Lato,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:#252525; }
-    h2,h3,h4{ font-family:"Playfair Display",serif; }
-    .card{ background:#F7F4EE; border-radius:16px; padding:14px; box-shadow:0 8px 20px rgba(0,0,0,.06); }
-    .muted{ color:#656565; } .small{ font-size:.95rem; }
-    .pill{ display:inline-block; padding:.35rem .75rem; border-radius:999px; background:#EEE6D9; color:#444; font-weight:600; font-size:.9rem; }
+    :root {
+      --leche: #F7F1EE;     /* fondo: nude rosado */
+      --arena: #EFE4DD;     /* franjas y superficies */
+      --nuez: #B99A87;      /* líneas y detalles (color de la marca) */
+      --espresso: #3E2C24;  /* texto y botón principal */
+      --suave: #6E5A50;     /* texto secundario */
+      --malva: #C9A3BD;     /* el rosa del sello del logo */
+      --blanco: #FFFCFA;
+      --display: "Italiana", "Didot", "Bodoni 72", Georgia, serif;
+      --texto: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+      --ancho: 1120px;
+      --logo: url("data:image/png;base64,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");
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--leche); color: var(--espresso); font: 400 17px/1.6 var(--texto); }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--espresso); outline-offset: 3px; border-radius: 2px; }
+    .envoltura { max-width: var(--ancho); margin: 0 auto; padding: 0 20px; }
+    h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; letter-spacing: .01em; }
+    h2 { font-size: clamp(34px, 6vw, 48px); line-height: 1.05; }
+    h3 { font-size: 26px; line-height: 1.15; }
+    p { margin: 0; }
+    .suave { color: var(--suave); }
 
-    /* ========= HEADER DECORATIVO ========= */
-    header.site-header{ padding:0 !important; }
-    .header-surface{
-      position: relative; margin: 16px auto 8px; padding: 28px 16px;
-      border-radius: 28px; max-width: 1100px; overflow: hidden;
-      box-shadow: 0 10px 24px rgba(0,0,0,.06);
-      background-image:
-        linear-gradient(135deg,#F3E9DB 0%, #EEE5D8 55%, #E7DFD2 100%),
-        url('assets/header-bg.jpg');
-      background-size: cover, cover; background-position: center, center;
-      background-blend-mode: multiply;
-    }
-    .header-surface::after{
-      content:""; position:absolute; inset:0; pointer-events:none;
-      background:
-        radial-gradient(1200px 400px at 80% -10%, rgba(255,255,255,.35), transparent 60%) ,
-        radial-gradient(900px 300px at -10% 110%, rgba(255,255,255,.25), transparent 60%),
-        repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 2px, rgba(0,0,0,.02) 2px 4px);
-      mix-blend-mode: soft-light;
-    }
-    .header-surface .brand{
-      display:flex !important; flex-direction:column !important;
-      align-items:center !important; justify-content:center !important;
-      gap:10px !important; margin:0 auto !important; text-align:center !important;
-    }
-    .header-surface .logo{ line-height:0 !important; }
-    .header-surface .logo img{
-      display:block !important; margin:0 auto !important;
-      width:auto !important; height:auto !important; max-height:180px !important;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,.08));
-    }
-    @media (min-width:992px){
-      .header-surface{ padding:36px 20px; }
-      .header-surface .logo img{ max-height:220px !important; }
-    }
-    .header-surface .brand-text h1,
-    .header-surface .brand-text .subtitle{
-      margin:4px 0 0 0 !important; text-align:center !important; color:#3a3a3a;
-      text-shadow: 0 1px 0 rgba(255,255,255,.45);
-    }
-    .header-surface .brand-text h1{
-      font-size: clamp(24px, 3.2vw, 36px) !important; line-height:1.15 !important;
-    }
+    /* Botones */
+    .boton { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 50px; padding: 12px 24px;
+      border-radius: 999px; font: 500 16px/1 var(--texto); text-decoration: none; border: 1px solid var(--espresso); cursor: pointer; }
+    .boton.lleno { background: var(--espresso); color: var(--blanco); }
+    .boton.lleno:hover { background: #2D1F19; }
+    .boton.linea { background: transparent; color: var(--espresso); }
+    .boton.linea:hover { background: var(--arena); }
+    .boton svg { width: 19px; height: 19px; flex: none; }
 
-    /* -------- Layout principal -------- */
-    .hero{
-      display:grid !important;
-      gap:16px;
-      grid-template-columns:1fr; /* móvil */
+    /* Barra de arriba */
+    .barra { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; }
+    .logo { display: block; width: 66px; aspect-ratio: 360 / 262; background: var(--espresso);
+      -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
+    .barra nav { display: flex; align-items: center; gap: 22px; font-size: 15px; }
+    .barra nav a:not(.boton) { text-decoration: none; color: var(--suave); }
+    .barra nav a:not(.boton):hover { color: var(--espresso); }
+    .barra .boton { min-height: 40px; padding: 8px 18px; font-size: 15px; }
+
+    /* Portada: tres mechones colgando, como en un muestrario de color */
+    .portada { display: grid; gap: 28px; padding-top: 8px; padding-bottom: 40px; }
+    .portada h1 { font-size: clamp(64px, 17vw, 132px); line-height: .9; margin-left: -.04em; }
+    .portada .donde { margin-top: 14px; font-size: 18px; color: var(--suave); }
+    .portada .frase { margin-top: 18px; max-width: 30ch; font-size: 19px; }
+    .portada .acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .mechones { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: start; padding-top: 14px; }
+    .mechones::before { content: ""; position: absolute; left: -6px; right: -6px; top: 0; height: 1px; background: var(--nuez); }
+    .mechon { position: relative; overflow: hidden; background: var(--arena); border-radius: 2px 2px 40px 40px; }
+    .mechon::before { content: ""; position: absolute; top: -14px; left: 50%; width: 1px; height: 14px; background: var(--nuez); z-index: 1; }
+    .mechon img { width: 100%; height: 100%; object-fit: cover; }
+    .mechon:nth-child(1) { height: clamp(260px, 72vw, 560px); }
+    .mechon:nth-child(2) { height: clamp(210px, 58vw, 460px); }
+    .mechon:nth-child(3) { height: clamp(170px, 46vw, 370px); }
+    .mechones .mechon { clip-path: inset(0 0 100% 0); }
+    .mechones.listos .mechon { animation: caer 1.1s cubic-bezier(.2, .7, .2, 1) forwards; }
+    .mechones.listos .mechon:nth-child(2) { animation-delay: .12s; }
+    .mechones.listos .mechon:nth-child(3) { animation-delay: .24s; }
+    @keyframes caer { to { clip-path: inset(0 0 0 0); } }
+    @media (prefers-reduced-motion: reduce) { .mechones .mechon, .mechones.listos .mechon { clip-path: none; animation: none; } }
+
+    /* Secciones */
+    section { padding: 56px 0; }
+    .franja { background: var(--arena); }
+    .cabeza { display: grid; gap: 10px; margin-bottom: 28px; }
+    .cabeza p { max-width: 58ch; }
+
+    /* Sobre mí */
+    .sobre { display: grid; gap: 28px; align-items: center; }
+    .sobre .foto { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 2px 2px 120px 120px; background: var(--leche); max-width: 420px; }
+    .sobre .foto img { width: 100%; height: 100%; object-fit: cover; }
+    .sobre p { font-size: 19px; max-width: 34ch; margin-top: 14px; }
+
+    /* Servicios: lista con líneas finas */
+    .servicios { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--nuez); }
+    .servicios li { display: grid; gap: 4px; padding: 18px 0; border-bottom: 1px solid rgba(185, 154, 135, .55); }
+    .servicios h3 { font-size: 27px; }
+    .servicios .nota { font-size: 15px; color: var(--suave); font-style: italic; }
+    .aviso-precio { margin-top: 18px; font-size: 16px; color: var(--suave); }
+
+    /* Mi trabajo: cuadrícula */
+    .galeria { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .galeria button { position: relative; padding: 0; border: 0; background: var(--arena); aspect-ratio: 3 / 4; overflow: hidden; cursor: zoom-in; border-radius: 2px; }
+    .galeria img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .galeria button:hover img { transform: scale(1.03); }
+    .galeria .oculta { display: none; }
+    .galeria.todas .oculta { display: block; }
+    .mas { margin-top: 18px; }
+
+    /* Novias y workshops */
+    .dos { display: grid; gap: 34px; }
+    .dos article { display: grid; gap: 16px; align-content: start; }
+    .dos .foto { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 2px; background: var(--arena); }
+    .dos .foto img { width: 100%; height: 100%; object-fit: cover; }
+    .dos ul { margin: 6px 0 0; padding-left: 20px; color: var(--suave); }
+
+    /* Cómo agendar (sí es una secuencia) */
+    .pasos { list-style: none; counter-reset: paso; margin: 0; padding: 0; display: grid; gap: 22px; }
+    .pasos li { counter-increment: paso; display: grid; grid-template-columns: 46px 1fr; gap: 12px; align-items: start; }
+    .pasos li::before { content: counter(paso); font: 400 40px/1 var(--display); color: var(--nuez); }
+    .reglas { margin: 34px 0 0; padding: 22px 0 0; border-top: 1px solid var(--nuez); display: grid; gap: 14px; }
+    .reglas div { display: grid; gap: 2px; }
+    .reglas dt { font-weight: 500; }
+    .reglas dd { margin: 0; color: var(--suave); }
+
+    /* Dónde estoy */
+    .lugar { display: grid; gap: 22px; }
+    .mapa { position: relative; aspect-ratio: 4 / 3; border-radius: 2px; overflow: hidden; background: var(--arena); }
+    .mapa iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .lugar address { font-style: normal; font-size: 18px; max-width: 32ch; }
+
+    /* Frase */
+    .frase-final { text-align: center; padding: 70px 0; }
+    .frase-final blockquote { margin: 0 auto; max-width: 22ch; font: 400 clamp(30px, 6vw, 46px)/1.15 var(--display); }
+    .frase-final cite { display: block; margin-top: 18px; font: 400 16px var(--texto); font-style: normal; color: var(--suave); }
+    .frase-final .sello { width: 54px; height: 54px; margin: 0 auto 22px; border-radius: 50%; background: var(--malva); opacity: .55; }
+
+    footer { padding: 34px 0 40px; border-top: 1px solid rgba(185, 154, 135, .55); font-size: 15px; color: var(--suave); }
+    footer .redes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    footer .boton { min-height: 44px; font-size: 15px; }
+
+    /* Ver foto grande */
+    dialog.visor { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgba(30, 20, 16, .94); color: #fff; }
+    dialog.visor::backdrop { background: rgba(30, 20, 16, .94); }
+    .visor figure { margin: 0; height: 100%; display: flex; align-items: center; justify-content: center; padding: 56px 12px 76px; }
+    .visor img { max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 2px; }
+    .visor button { position: absolute; border: 0; background: rgba(255, 255, 255, .14); color: #fff; width: 48px; height: 48px; border-radius: 50%; font-size: 26px; cursor: pointer; }
+    .visor .cerrar { top: 12px; right: 12px; }
+    .visor .ant { left: 12px; bottom: 16px; }
+    .visor .sig { right: 12px; bottom: 16px; }
+    .visor .cuenta { position: absolute; bottom: 28px; left: 0; right: 0; text-align: center; font-size: 15px; opacity: .8; pointer-events: none; }
+    .visor button { z-index: 1; }
+
+    /* Barra fija en el celular: siempre a la mano */
+    .fija { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; display: grid; grid-template-columns: 1fr auto; gap: 10px;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(247, 241, 238, .96); border-top: 1px solid rgba(185, 154, 135, .6);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .fija .boton { min-height: 48px; }
+    .fija .boton.linea { width: 52px; padding: 0; }
+    body { padding-bottom: 76px; }
+
+    @media (min-width: 760px) {
+      .galeria { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .dos { grid-template-columns: 1fr 1fr; }
+      .servicios { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; border-top: 0; }
+      .servicios li { border-top: 1px solid rgba(185, 154, 135, .55); border-bottom: 0; }
+      .reglas { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+      .lugar { grid-template-columns: 1.3fr 1fr; align-items: center; }
     }
-    /* 2 columnas desde tablet */
-    @media (min-width:768px){
-      .hero{ grid-template-columns:1.6fr 1fr; }
+    @media (min-width: 980px) {
+      body { padding-bottom: 0; }
+      .fija { display: none; }
+      .portada { grid-template-columns: 1fr 1.05fr; align-items: center; padding-top: 24px; padding-bottom: 72px; }
+      .mechon:nth-child(1) { height: 560px; }
+      .mechon:nth-child(2) { height: 460px; }
+      .mechon:nth-child(3) { height: 370px; }
+      .sobre { grid-template-columns: 420px 1fr; gap: 64px; }
+      .galeria { grid-template-columns: repeat(4, 1fr); }
+      section { padding: 84px 0; }
+      .pasos { grid-template-columns: repeat(3, 1fr); gap: 32px; }
     }
-
-    /* -------- Servicios -------- */
-    .services{ display:grid; grid-template-columns:1fr; gap:10px; }
-
-    /* ADECUACIÓN: una sola fila + precio centrado */
-    .service{
-      display:flex;
-      align-items:center;                /* centra verticalmente */
-      justify-content:space-between;
-      gap:12px;
-      background:#fff;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid #E7E2D7;
-      flex-wrap:nowrap;                  /* evita que salte a 2 filas en desktop */
-    }
-    .service > div:first-child{
-      min-width:0;                       /* permite que el texto se ajuste sin empujar el precio */
-    }
-    .service h3{ margin:0; }
-    .service .small{ display:block; }
-
-    .price{
-      font-weight:700;
-      flex:0 0 220px;                    /* ancho fijo para la “columna” del precio */
-      text-align:center;                 /* centra el costo */
-      white-space:normal;                /* si el precio es largo, que haga salto */
-    }
-
-    /* En móviles permitimos que el precio baje debajo y quede centrado */
-    @media (max-width:560px){
-      .service{ flex-wrap:wrap; }
-      .price{
-        flex:1 1 100%;
-        text-align:center;
-        margin-top:6px;
-      }
-    }
-
-    /* -------- Foto lateral (hueco derecho) -------- */
-    @media (min-width:980px){
-      .side-gap-photo{
-        height: clamp(360px, 28vh, 600px);
-        border-radius:16px; overflow:hidden; margin:12px 0;
-        box-shadow:0 8px 20px rgba(0,0,0,.06); background:#F2ECE4;
-      }
-      .side-gap-photo img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
-    }
-    @media (max-width:979px){ .side-gap-photo{ display:none; } }
-
-    /* -------- Novias + Workshops en UNA columna (izquierda) -------- */
-    .sections{ display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px; }
-
-    /* -------- Carrusel / Galería -------- */
-    #gallery{ margin-top:18px; }
-    .carousel{ position:relative; border-radius:16px; background:#F7F4EE; padding:10px 48px 56px; box-shadow:0 8px 20px rgba(0,0,0,.06); }
-    .c-viewport{ position:relative; height:clamp(320px,50vh,520px); overflow:hidden; border-radius:12px; background:#EEE6D9; }
-    .c-slide{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transform:scale(.98); transition:opacity .35s ease, transform .35s ease; }
-    .c-slide.is-active{ opacity:1; transform:scale(1); }
-    .c-nav{ position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:999px; border:1px solid #D6D1C4; background:#fff; color:#5a5a5a; display:grid; place-items:center; font-size:22px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.08); user-select:none; }
-    .c-prev{ left:8px; } .c-next{ right:8px; } .c-nav:hover{ background:#F9F7F3; }
-    .c-thumbs{ position:absolute; left:0; right:0; bottom:6px; display:flex; gap:8px; justify-content:center; padding:0 12px; }
-    .c-thumb{ width:60px; height:44px; border:2px solid transparent; border-radius:8px; overflow:hidden; background:transparent; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,.08); padding:0; }
-    .c-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .c-thumb.is-active{ border-color:#C9C2B2; }
-    @media (max-width:680px){ .carousel{ padding:8px 40px 64px; } .c-viewport{ height:clamp(240px,42vh,360px); } .c-thumb{ width:52px; height:38px; } }
-
-    /* -------- Mapa embebido + botón Maps -------- */
-    .map-embed{ position:relative; margin-top:8px; border-radius:14px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.06); height:220px; }
-    .map-embed iframe{ width:100%; height:100%; border:0; display:block; }
-    .map-open{ position:absolute; right:10px; bottom:10px; padding:.45rem .75rem; border-radius:999px; background:rgba(0,0,0,.55); color:#fff; font-size:12px; text-decoration:none; border:1px solid rgba(255,255,255,.4); backdrop-filter:blur(2px); }
-    .map-open:hover{ background:rgba(0,0,0,.7); }
-    @media (min-width:980px){ .map-embed{ height:260px; } }
-
-    /* -------- CTA final -------- */
-    .cta-row{ display:inline-flex; gap:12px; align-items:center; justify-content:center; }
-    .cta-btn{ padding:.9rem 1.25rem; border-radius:1rem; box-shadow:0 1px 2px rgba(0,0,0,.06); border:1px solid #D6D1C4; font-size:1rem; font-weight:600; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; text-decoration:none; }
-    .cta-wa{ background:#EEDDC7; color:#3E3E3E; } .cta-ig{ background:#D6D1C4; color:#fff; }
-    #cta-final{ border-top:1px solid rgba(0,0,0,.06); }
-
-    /* -------- Footer -------- */
-    footer{ text-align:center; padding:14px 0; color:#444; }
-
-    /* -------- Asegurar que el mapa vaya primero en la columna derecha -------- */
-    .card.center{ display:flex; flex-direction:column; gap:8px; }
-    .card.center .map-embed{ order:-1; } /* mapa arriba */
+    @media (max-width: 979px) { .barra nav .menu, .barra nav .boton { display: none; } }
+    /* En el celular la barra de abajo aparece cuando ya no se ven los botones de la portada */
+    .fija { transform: translateY(110%); transition: transform .3s ease; }
+    .fija.visible { transform: none; }
+    @media (prefers-reduced-motion: reduce) { .fija { transition: none; } }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-      <div class="header-surface">
-        <div class="brand">
-          <div class="logo">
-            <img src="assets/logo.svg" alt="Logo de Fabiola Villegas">
-          </div>
-          <div class="brand-text">
-            <div class="subtitle"></div>
-          </div>
+  <header class="envoltura barra">
+    <a href="#inicio" class="logo" aria-label="Faby Villegas, inicio"></a>
+    <nav aria-label="Secciones">
+      <a class="menu" href="#servicios">Servicios</a>
+      <a class="menu" href="#trabajo">Mi trabajo</a>
+      <a class="menu" href="#novias">Novias</a>
+      <a class="menu" href="#donde">Dónde estoy</a>
+      <a class="boton lleno" href="reservar.html">Agendar cita</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <div class="envoltura portada">
+      <div>
+        <h1>Faby<br>Villegas</h1>
+        <p class="donde" data-t="donde">Estilista en Lomas de Chapultepec, CDMX</p>
+        <p class="frase" data-t="frase">Color, peinados y novias, cuidando siempre la salud de tu cabello.</p>
+        <div class="acciones" id="accionesPortada">
+          <a class="boton lleno" href="reservar.html">Agendar cita</a>
+          <a class="boton linea js-wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7l-4.2 1.2 1.2-4A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c.3 2 2.3 4.2 4.6 4.8"/></svg> Escribir por WhatsApp</a>
         </div>
       </div>
-      <div class="top-ctas"></div>
-    </header>
+      <div class="mechones" id="mechones" aria-label="Algunos de mis trabajos">
+        <div class="mechon"><img alt="Ondas largas con balayage" decoding="async"></div>
+        <div class="mechon"><img alt="Peinado de novia" decoding="async"></div>
+        <div class="mechon"><img alt="Recogido con perlas" decoding="async"></div>
+      </div>
+    </div>
 
-    <!-- ===== CONTENIDO PRINCIPAL ===== -->
-    <main>
-      <section class="hero" id="home">
-        <!-- Columna IZQUIERDA -->
+    <section class="franja" aria-labelledby="tSobre">
+      <div class="envoltura sobre">
+        <div class="foto"><img id="fotoFaby" src="assets/fabiola.jpg" alt="Fabiola Villegas" loading="lazy" decoding="async"></div>
         <div>
-          <div class="intro">
-            <h2>¡Hola!</h2>
-            <p>Soy <strong>Fabiola Villegas</strong>, estilista profesional con 10 años de experiencia enfocada en técnicas de color, diseño y cuidado capilar, combino creatividad y precisión para resaltar tu estilo natural, cuidando siempre la salud y belleza de tu cabello.</p>
-
-            <div class="menu-card">
-              <h3 style="margin-bottom:8px">Servicios</h3>
-
-              <div class="services">
-                <div class="service">
-                  <div>
-                    <h3>Corte para Dama</h3>
-                    <div class="small muted"></div>
-                  </div>
-                  <div class="price"></div>
-                </div>
-
-                <div class="service">
-                  <div>
-                    <h3>Color</h3>
-                    <div class="small muted">Balayage, Babylights, Highlights, Retoques de cana, Baños de color.</div>
-                  </div>
-                  <div class="price"></div>
-                </div>
-
-                <div class="service">
-                  <div>
-                    <h3>Hidratación, Brillo y Ampoletas.</h3>
-                    <div class="small muted">Tratamientos de Mucota, Bumble & Bumble, Davines, Bonacure R-TWO.</div>
-                  </div>
-                  <div class="price"></div>
-                </div>
-
-                <div class="service">
-                  <div>
-                    <h3>Peinados Sociales</h3>
-                    <div class="small muted">Recogidos, Ondas, Trenzas, Ponytail, Alaciados, Etc.</div>
-                  </div>
-                  <div class="price"></div>
-                </div>
-
-                <div class="service">
-                  <div>
-                    <h3>Novias</h3>
-                    <div class="small muted">Prueba, día del evento y cambio de peinado.</div>
-                  </div>
-                  <div class="price">Cotización personalizada</div>
-                </div>
-
-                <div class="service">
-                  <div>
-                    <h3>Workshop</h3>
-                    <div class="small muted">Talleres y Capacitaciones de peinado</div>
-                  </div>
-                  <div class="price">"Personales o en Grupo"</div>
-                </div>
-              </div>
-
-              <!-- Políticas (estructura) -->
-              <div class="policies" style="margin-top:12px">
-                <div class="policy-item"><strong>Para cualquier servicio, se realizará lo siguiente:</strong></div>
-                <div class="policy-item"><strong>Anticipo:</strong> 10% del valor del servicio para reservar (no reembolsable). Confirmación con comprobante por WhatsApp.</div>
-                <div class="policy-item"><strong>Tolerancia:</strong> 10 minutos. Se puede reprogramar con 24 h de anticipación.</div>
-                <div class="policy-item"><strong>Formas de pago:</strong> Efectivo, Tarjeta, Transferencia y/o Link de Pago (Mercado Pago). (Pedir datos por WhatsApp)</div>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top:14px" class="card">
-            <h3 style="margin-top:0">Cómo agendar</h3>
-            <ol class="muted" style="margin:8px 0 0 18px;">
-              <li>Envía un mensaje por WhatsApp con el servicio que deseas.</li>
-              <li>Te propongo horarios disponibles y te pido el anticipo para asegurar la reserva.</li>
-              <li>Envía comprobante por WhatsApp; te confirmo la cita y datos del salón. En servicio a domicilio se solicita ubicación.</li>
-            </ol>
-          </div>
-
-          <!-- Novias + Workshops en la misma columna -->
-          <div class="sections" id="extras">
-            <div class="card">
-              <h3 style="margin:0 0 8px 0">Novias (locales y foráneas)</h3>
-              <p class="muted small">Pruebas personalizadas, asesoría de imagen y servicio el día del evento. Paquetes disponibles para maquillaje + peinado (consultar).</p>
-              <ul class="muted" style="margin:8px 0 0 18px">
-                <li>Prueba de peinado</li>
-                <li>Peinado el día del evento (Cd. Méx.)</li>
-                <li>Peinado foráneo</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3 style="margin:0 0 8px 0">Workshops</h3>
-              <p class="muted small">Talleres cortos para aprender peinados básicos, trenzas y styling.</p>
-              <ul class="muted" style="margin:8px 0 0 18px">
-                <li>Workshop básico a grupos y personalizado</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Columna DERECHA -->
-        <aside>
-          <div style="position:sticky;top:20px">
-            <div class="card center">
-              <!-- Mapa ARRIBA -->
-              <div class="map-embed">
-                <iframe
-                  id="mapFrame"
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps?q=Av.%20Paseo%20de%20las%20Palmas%20260-A-Segundo%20piso,%20Lomas%20-%20Virreyes,%20Lomas%20de%20Chapultepec,%20Miguel%20Hidalgo,%2011000%20Ciudad%20de%20M%C3%A9xico,%20CDMX&output=embed">
-                </iframe>
-                <a id="mapBtn" class="map-open" href="https://maps.app.goo.gl/RFWnkcmC7BvtQfgcA" target="_blank" rel="noopener">Abrir en Maps</a>
-              </div>
-<div class="muted small" style="line-height:1.4">
-                Av. Paseo de las Palmas 260-A-Segundo piso, Lomas - Virreyes, Lomas de Chapultepec, Miguel Hidalgo, 11000 Ciudad de México, CDMX
-              </div>
-            </div>
-
-              <div class="pill">Servicio a domicilio disponible (Consulta por WhatsApp)</div>
-            <div class="side-gap-photo">
-              <img src="assets/fabiola.jpg" alt="Fabiola Villegas">
-            </div>
-
-            <div class="card" style="margin-top:12px">
-              <h4 style="margin:0 0 8px 0">Guido Palam</h4>
-              <p class="muted small">"Cada peluquero tiene su propio estilo y esto es lo que hace de la peluquería una forma de arte."</p>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <!-- Galería / Carrusel -->
-      <section id="gallery">
-        <h3 style="margin:0 0 12px 0">Galería</h3>
-
-        <div class="carousel" data-carousel>
-          <button class="c-nav c-prev" aria-label="Anterior">‹</button>
-
-          <div class="c-viewport">
-            <img class="c-slide is-active" src="assets/photo3.jpg"  alt="Foto 3">
-            <img class="c-slide"           src="assets/photo4.jpg"  alt="Foto 4">
-            <img class="c-slide"           src="assets/photo5.jpg"  alt="Foto 5">
-            <img class="c-slide"           src="assets/photo6.jpg"  alt="Foto 6">
-            <img class="c-slide"           src="assets/photo7.jpg"  alt="Foto 7">
-            <img class="c-slide"           src="assets/photo8.jpg"  alt="Foto 8">
-            <img class="c-slide"           src="assets/photo9.jpg"  alt="Foto 9">
-            <img class="c-slide"           src="assets/photo10.jpg" alt="Foto 10">
-            <img class="c-slide"           src="assets/photo11.jpg" alt="Foto 11">
-          </div>
-
-          <button class="c-nav c-next" aria-label="Siguiente">›</button>
-
-          <div class="c-thumbs">
-            <button class="c-thumb is-active"><img src="assets/photo3.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/photo4.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/photo5.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/photo6.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/photo7.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/photo8.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/photo9.jpg"  alt=""></button>
-            <button class="c-thumb"><img src="assets/photo10.jpg" alt=""></button>
-            <button class="c-thumb"><img src="assets/photo11.jpg" alt=""></button>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- CTA ÚNICO AL FINAL -->
-    <section id="cta-final" class="py-10">
-      <div class="text-center">
-        <div class="cta-row">
-          <a href="https://wa.me/525561117810?text=Hola%2C%20me%20gustaría%C3%ADa%20agendar%20una%20cita.%20%C2%BFTienen%20disponibilidad%20esta%20semana%3F" target="_blank" rel="noopener" class="cta-btn cta-wa">WhatsApp</a>
-          <a href="https://www.instagram.com/faby_ville28?igsh=MXB6dDljOHZ5MTRiaA==" target="_blank" rel="noopener" class="cta-btn cta-ig">Instagram</a>
+          <h2 id="tSobre">¡Hola!</h2>
+          <p data-t="hola">Soy <strong>Fabiola Villegas</strong>, estilista profesional con 10 años de experiencia en técnicas de color, diseño y cuidado capilar. Combino creatividad y precisión para resaltar tu estilo natural, cuidando siempre la salud y la belleza de tu cabello.</p>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-      <div style="margin-bottom:8px">Espacio seguro y respetuoso • Todos son bienvenidos</div>
-      <div class="small muted">© <span id="year"></span> Hair Artist Styling Studio • Fabiola Villegas</div>
-    </footer>
+    <section id="servicios" aria-labelledby="tServ">
+      <div class="envoltura">
+        <div class="cabeza"><h2 id="tServ">Servicios</h2></div>
+        <ul class="servicios" id="listaServicios">
+          <li><h3>Corte para dama</h3><p class="suave">Corte y forma a tu medida.</p></li>
+          <li><h3>Color</h3><p class="suave">Balayage, babylights, highlights, retoque de cana y baños de color.</p></li>
+          <li><h3>Hidratación, brillo y ampolletas</h3><p class="suave">Tratamientos de Mucota, Bumble and Bumble, Davines y Bonacure R-TWO.</p></li>
+          <li><h3>Peinados sociales</h3><p class="suave">Recogidos, ondas, trenzas, ponytail y alaciados.</p></li>
+          <li><h3>Novias</h3><p class="suave">Prueba, día del evento y cambio de peinado.</p><p class="nota">Cotización personalizada</p></li>
+          <li><h3>Workshop</h3><p class="suave">Talleres y capacitaciones de peinado.</p><p class="nota">Personales o en grupo</p></li>
+        </ul>
+        <p class="aviso-precio" data-t="precios">El precio depende del largo y del servicio: te lo confirmo por WhatsApp antes de tu cita.</p>
+      </div>
+    </section>
+
+    <section id="trabajo" class="franja" aria-labelledby="tTrab">
+      <div class="envoltura">
+        <div class="cabeza"><h2 id="tTrab">Mi trabajo</h2><p class="suave">Toca una foto para verla grande.</p></div>
+        <div class="galeria" id="galeria"></div>
+        <button class="boton linea mas" id="verMas" type="button" hidden>Ver más fotos</button>
+      </div>
+    </section>
+
+    <section id="novias" aria-labelledby="tNov">
+      <div class="envoltura dos">
+        <article>
+          <div class="foto"><img id="fotoNovias" src="assets/photo17.jpg" alt="Peinando a una novia el día de su boda" loading="lazy" decoding="async"></div>
+          <h2 id="tNov">Novias</h2>
+          <p class="suave" data-t="novias">Locales y foráneas. Pruebas personalizadas, asesoría de imagen y servicio el día del evento. Hay paquetes de maquillaje y peinado: pregúntame.</p>
+          <ul id="noviasLista"><li>Prueba de peinado</li><li>Peinado el día del evento (Cd. Méx.)</li><li>Peinado foráneo</li></ul>
+        </article>
+        <article id="artWorkshops">
+          <div class="foto"><img id="fotoWorkshops" src="assets/photo8.jpg" alt="Recogido texturizado" loading="lazy" decoding="async"></div>
+          <h2>Workshops</h2>
+          <p class="suave" data-t="workshops">Talleres cortos para aprender peinados básicos, trenzas y styling, en grupo o personalizados.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="franja" aria-labelledby="tAg">
+      <div class="envoltura">
+        <div class="cabeza"><h2 id="tAg">Cómo agendar</h2></div>
+        <ol class="pasos">
+          <li data-paso="1"><p>Elige servicio, día y hora en la <a href="reservar.html">agenda en línea</a>, o escríbeme por <a class="js-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>.</p></li>
+          <li data-paso="2"><p>Te confirmo por WhatsApp y te pido el anticipo para apartar tu lugar.</p></li>
+          <li data-paso="3"><p>Me mandas tu comprobante y te llega la confirmación con la dirección. Si es a domicilio, te pido tu ubicación.</p></li>
+        </ol>
+        <dl class="reglas">
+          <div data-r="anticipo"><dt>Anticipo</dt><dd>10% del servicio para apartar (no reembolsable).</dd></div>
+          <div data-r="tolerancia"><dt>Tolerancia</dt><dd>10 minutos. Puedes reprogramar con 24 h de anticipación.</dd></div>
+          <div data-r="pagos"><dt>Formas de pago</dt><dd>Efectivo, tarjeta, transferencia o link de pago (Mercado Pago).</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="donde" aria-labelledby="tDonde">
+      <div class="envoltura lugar">
+        <div class="mapa"><iframe id="mapaFrame" title="Mapa del salón" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Av.%20Paseo%20de%20las%20Palmas%20260-A-Segundo%20piso,%20Lomas%20-%20Virreyes,%20Lomas%20de%20Chapultepec,%20Miguel%20Hidalgo,%2011000%20Ciudad%20de%20M%C3%A9xico,%20CDMX&output=embed"></iframe></div>
+        <div>
+          <h2 id="tDonde">Dónde estoy</h2>
+          <address id="direccion" style="margin-top:14px">Av. Paseo de las Palmas 260-A, segundo piso, Lomas - Virreyes, Lomas de Chapultepec, Miguel Hidalgo, 11000, CDMX</address>
+          <p class="suave" style="margin-top:12px" data-t="domicilio">También voy a domicilio: pregúntame por WhatsApp.</p>
+          <div style="margin-top:20px"><a class="boton linea" id="abrirMapa" href="https://maps.app.goo.gl/RFWnkcmC7BvtQfgcA" target="_blank" rel="noopener">Abrir en el mapa</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="frase-final franja" aria-label="Frase" id="fraseFinal">
+      <div class="envoltura">
+        <div class="sello" aria-hidden="true"></div>
+        <blockquote data-t="cita">“Cada peluquero tiene su propio estilo, y eso es lo que hace de la peluquería una forma de arte.”</blockquote>
+        <cite data-t="autor">Guido Palau</cite>
+      </div>
+    </section>
+  </main>
+
+  <footer class="envoltura">
+    <div class="redes">
+      <a class="boton linea" id="linkIG" href="https://www.instagram.com/faby_ville28?igsh=MXB6dDljOHZ5MTRiaA==" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.7l1.3-2h5l1.3 2h1.7A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"/><circle cx="12" cy="12.5" r="3.4"/></svg> Instagram</a>
+      <a class="boton linea js-wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7l-4.2 1.2 1.2-4A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c.3 2 2.3 4.2 4.6 4.8"/></svg> WhatsApp</a>
+    </div>
+    <p>Espacio seguro y respetuoso. Todas y todos son bienvenidos.</p>
+    <p>© <span id="anio"></span> Hair Artist Styling Studio · Fabiola Villegas</p>
+  </footer>
+
+  <div class="fija">
+    <a class="boton lleno" href="reservar.html">Agendar cita</a>
+    <a class="boton linea js-wa" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7l-4.2 1.2 1.2-4A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c.3 2 2.3 4.2 4.6 4.8"/></svg></a>
   </div>
 
-  <!-- Carrusel JS (ligero) -->
+  <dialog class="visor" id="visor" aria-label="Foto grande">
+    <figure><img id="visorImg" alt=""></figure>
+    <button class="cerrar" type="button" aria-label="Cerrar">×</button>
+    <button class="ant" type="button" aria-label="Foto anterior">‹</button>
+    <button class="sig" type="button" aria-label="Foto siguiente">›</button>
+    <div class="cuenta" id="visorCuenta"></div>
+  </dialog>
+
   <script>
-  (function(){
-    const car = document.querySelector('[data-carousel]');
-    if(!car) return;
+  (function () {
+    /* ===== Ajustes de la página ===== */
+    // Dirección de la agenda (la misma de reservar.html). De aquí salen las fotos que Faby sube desde la app.
+    var APP = 'https://script.google.com/macros/s/AKfycbwowJ3k2cBFWFHUZ8AM5Bd_XrgIrCSljmaWm_5xuC5tIegP883ARMalUiOZt8CNqwsc/exec';
+    var WHATSAPP = 'https://wa.me/525561117810?text=' + encodeURIComponent('Hola, me gustaría agendar una cita.');
+    // Fotos que ya están en la página: se usan si la app todavía no tiene fotos o no responde.
+    var FOTOS_PAGINA = ['photo19', 'photo28', 'photo27', 'photo14', 'photo17', 'photo2', 'photo12', 'photo13', 'photo18', 'photo4', 'photo9',
+      'photo11', 'photo20', 'photo23', 'photo22', 'photo10', 'photo29', 'photo26', 'photo5', 'photo21', 'photo15', 'photo24', 'photo7', 'photo3']
+      .map(function (n) { return { src: 'assets/' + n + '.jpg', chica: 'assets/' + n + '.jpg' }; });
+    var VISIBLES = 12;
 
-    const slides = Array.from(car.querySelectorAll('.c-slide'));
-    const thumbs = Array.from(car.querySelectorAll('.c-thumb'));
-    const prev   = car.querySelector('.c-prev');
-    const next   = car.querySelector('.c-next');
-
-    let i = slides.findIndex(s => s.classList.contains('is-active'));
-    if(i < 0) i = 0;
-    let lock = false;
-
-    function go(n){
-      if(lock) return;
-      lock = true;
-      i = (n + slides.length) % slides.length;
-      slides.forEach((s,idx)=> s.classList.toggle('is-active', idx===i));
-      thumbs .forEach((t,idx)=> t.classList.toggle('is-active', idx===i));
-      setTimeout(()=> lock=false, 350);
+    document.getElementById('anio').textContent = new Date().getFullYear();
+    // Barra fija del celular: se muestra cuando los botones de la portada ya no se ven
+    var fija = document.querySelector('.fija');
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { fija.classList.toggle('visible', !e[0].isIntersecting && e[0].boundingClientRect.top < 0); })
+        .observe(document.getElementById('accionesPortada'));
+    } else fija.classList.add('visible');
+    Array.prototype.forEach.call(document.querySelectorAll('.js-wa'), function (a) { a.href = WHATSAPP; });
+    // En iPhone el botón del mapa abre Apple Maps
+    var esIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    if (esIOS) {
+      document.getElementById('abrirMapa').href = 'https://maps.apple.com/?q=' + encodeURIComponent('Av. Paseo de las Palmas 260-A, Lomas de Chapultepec, Miguel Hidalgo, 11000 Ciudad de México');
     }
 
-    prev.addEventListener('click', ()=> go(i-1));
-    next.addEventListener('click', ()=> go(i+1));
-    thumbs.forEach((t,idx)=> t.addEventListener('click', ()=> go(idx)));
+    /* ===== Lo que Faby cambia desde la app: fotos, textos y contacto ===== */
+    function deDrive(id, ancho) { return 'https://lh3.googleusercontent.com/d/' + id + '=w' + ancho; }
+    function respaldo(img, id, ancho) { // si una forma de ver la foto de Drive falla, se intenta la otra
+      img.onerror = function () { img.onerror = null; img.src = 'https://drive.google.com/thumbnail?id=' + id + '&sz=w' + ancho; };
+    }
+    function ponerSrc(img, f, grande) {
+      if (f.id) { respaldo(img, f.id, grande ? 1600 : 700); img.src = deDrive(f.id, grande ? 1600 : 700); }
+      else img.src = grande ? f.src : f.chica;
+    }
+    function esc(t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+    function q(sel) { return document.querySelector(sel); }
+    var fotos = FOTOS_PAGINA, primero = true;
+    var claves = function (l) { return l.map(function (f) { return f.id || f.src; }).join('|'); };
 
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'ArrowLeft')  go(i-1);
-      if(e.key === 'ArrowRight') go(i+1);
+    function pintarPortada(lista, animar) {
+      var imgs = document.querySelectorAll('#mechones img'), n = 0, caja = document.getElementById('mechones');
+      var listo = function () { if (++n >= imgs.length) caja.classList.add('listos'); };
+      Array.prototype.forEach.call(imgs, function (img, i) {
+        if (animar) img.addEventListener('load', listo);
+        ponerSrc(img, lista[i] || FOTOS_PAGINA[i], false);
+      });
+      if (animar) setTimeout(function () { caja.classList.add('listos'); }, 2500); else caja.classList.add('listos');
+    }
+    function pintarGaleria(lista) {
+      var g = document.getElementById('galeria'), todas = g.classList.contains('todas');
+      g.innerHTML = '';
+      lista.forEach(function (f, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.setAttribute('aria-label', 'Ver foto ' + (i + 1) + ' grande');
+        if (i >= VISIBLES) b.className = 'oculta';
+        var img = document.createElement('img');
+        img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+        ponerSrc(img, f, false);
+        b.appendChild(img);
+        b.onclick = function () { abrir(i); };
+        g.appendChild(b);
+      });
+      document.getElementById('verMas').hidden = todas || lista.length <= VISIBLES;
+    }
+    document.getElementById('verMas').onclick = function () { document.getElementById('galeria').classList.add('todas'); this.hidden = true; };
+
+    function ponerFotoSuelta(imgId, id, ancho) {
+      if (!id) return;
+      var img = document.getElementById(imgId);
+      if (img.getAttribute('data-id') === id) return;
+      img.setAttribute('data-id', id); respaldo(img, id, ancho); img.src = deDrive(id, ancho);
+    }
+    // Textos: «vacío» quiere decir que ese apartado no sale
+    function enlazar(html) { // «agenda en línea» y «WhatsApp» quedan como enlaces
+      return html.replace(/agenda en línea/i, function (m) { return '<a href="reservar.html">' + m + '</a>'; })
+        .replace(/WhatsApp/, '<a class="js-wa" href="' + esc(WHATSAPP) + '" target="_blank" rel="noopener">WhatsApp</a>');
+    }
+    function parrafo(t) { return esc(t).replace(/\n/g, '<br>'); }
+    function ponerTextos(t) {
+      ['donde', 'frase', 'precios', 'novias', 'domicilio'].forEach(function (k) {
+        var el = q('[data-t="' + k + '"]'); if (!el || typeof t[k] !== 'string') return;
+        el.innerHTML = parrafo(t[k]); el.hidden = !t[k];
+      });
+      var hola = q('[data-t="hola"]');
+      if (typeof t.hola === 'string') hola.innerHTML = parrafo(t.hola).replace('Fabiola Villegas', '<strong>Fabiola Villegas</strong>');
+      if (typeof t.noviasLista === 'string') {
+        var items = t.noviasLista.split('\n').map(function (x) { return x.trim(); }).filter(Boolean);
+        var ul = document.getElementById('noviasLista'); ul.innerHTML = items.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join(''); ul.hidden = !items.length;
+      }
+      if (typeof t.workshops === 'string') { q('[data-t="workshops"]').innerHTML = parrafo(t.workshops); document.getElementById('artWorkshops').hidden = !t.workshops; }
+      [1, 2, 3].forEach(function (i) {
+        var v = t['paso' + i]; if (typeof v !== 'string') return;
+        var li = q('[data-paso="' + i + '"]'); li.querySelector('p').innerHTML = enlazar(parrafo(v)); li.hidden = !v;
+      });
+      ['anticipo', 'tolerancia', 'pagos'].forEach(function (k) {
+        if (typeof t[k] !== 'string') return;
+        var d = q('[data-r="' + k + '"]'); d.querySelector('dd').textContent = t[k]; d.hidden = !t[k];
+      });
+      if (typeof t.cita === 'string') {
+        q('[data-t="cita"]').textContent = '“' + t.cita.replace(/^["“]+|["”]+$/g, '') + '”';
+        q('[data-t="autor"]').textContent = t.autor || ''; q('[data-t="autor"]').hidden = !t.autor;
+        document.getElementById('fraseFinal').hidden = !t.cita;
+      }
+      if (typeof t.instagram === 'string') { var ig = document.getElementById('linkIG'); ig.href = t.instagram; ig.hidden = !t.instagram; }
+    }
+    function ponerServicios(lista) {
+      document.getElementById('listaServicios').innerHTML = lista.map(function (s) {
+        return '<li><h3>' + esc(s.nombre) + '</h3>' + (s.desc ? '<p class="suave">' + esc(s.desc) + '</p>' : '') + (s.nota ? '<p class="nota">' + esc(s.nota) + '</p>' : '') + '</li>';
+      }).join('');
+    }
+    function ponerContacto(c) {
+      if (c.whatsapp) {
+        WHATSAPP = c.whatsapp + '?text=' + encodeURIComponent('Hola, me gustaría agendar una cita.');
+        Array.prototype.forEach.call(document.querySelectorAll('.js-wa'), function (a) { a.href = WHATSAPP; });
+      }
+      if (c.direccion) {
+        var dir = document.getElementById('direccion');
+        if (dir.textContent.trim() !== c.direccion) {
+          dir.textContent = c.direccion;
+          document.getElementById('mapaFrame').src = 'https://www.google.com/maps?q=' + encodeURIComponent(c.direccion) + '&output=embed';
+        }
+      }
+      var am = document.getElementById('abrirMapa');
+      if (esIOS && c.direccion) am.href = 'https://maps.apple.com/?q=' + encodeURIComponent(c.direccion);
+      else if (!esIOS && c.maps) am.href = c.maps;
+    }
+    function aplicar(r) {
+      r = r || {};
+      var lista = (r.fotos || []).filter(function (f) { return f && f.id; });
+      var nuevas = lista.length >= 3 ? lista : FOTOS_PAGINA;
+      if (primero) { primero = false; fotos = nuevas; pintarPortada(fotos, true); pintarGaleria(fotos); }
+      else if (claves(nuevas) !== claves(fotos)) { fotos = nuevas; pintarPortada(fotos, false); pintarGaleria(fotos); }
+      ponerFotoSuelta('fotoFaby', r.faby, 900);
+      ponerFotoSuelta('fotoNovias', r.novias, 1200);
+      ponerFotoSuelta('fotoWorkshops', r.workshops, 1200);
+      if (r.textos) ponerTextos(r.textos);
+      if (r.servicios && r.servicios.length) ponerServicios(r.servicios);
+      if (r.contacto) ponerContacto(r.contacto);
+    }
+    // Lo último que mandó la app se guarda en el teléfono de la clienta: la próxima vez abre directo con eso
+    var MEMORIA = 'fabyWeb.v1';
+    var guardado = null;
+    try { guardado = JSON.parse(localStorage.getItem(MEMORIA) || 'null'); } catch (e) { guardado = null; }
+    if (guardado) { try { aplicar(guardado); } catch (e) { guardado = null; } }
+    // La app contesta con: galeriaFaby({ fotos: [{ id }], faby, novias, workshops, textos, servicios, contacto })
+    window.galeriaFaby = function (r) {
+      try { aplicar(r); try { localStorage.setItem(MEMORIA, JSON.stringify(r)); } catch (e) {} } catch (e) { if (primero) aplicar(null); }
+    };
+    function pedir(url, siFalla) {
+      var s = document.createElement('script');
+      s.src = url + (url.indexOf('?') < 0 ? '?' : '&') + 'galeria=1&cb=galeriaFaby';
+      s.async = true; s.onerror = siFalla;
+      document.head.appendChild(s);
+    }
+    if (/^https:\/\/script\.google\.com\//.test(APP)) {
+      pedir(APP, function () { pedir(APP.replace('/macros/', '/a/~/macros/'), function () { if (primero) aplicar(null); }); });
+      setTimeout(function () { if (primero) aplicar(null); }, 2200); // si la app tarda, se ve la página con sus fotos de siempre
+    } else if (primero) aplicar(null);
+
+    /* ===== Ver una foto grande ===== */
+    var visor = document.getElementById('visor'), vImg = document.getElementById('visorImg'), actual = 0;
+    function mostrar(i) {
+      actual = (i + fotos.length) % fotos.length;
+      ponerSrc(vImg, fotos[actual], true);
+      document.getElementById('visorCuenta').textContent = (actual + 1) + ' de ' + fotos.length;
+    }
+    function abrir(i) { mostrar(i); if (visor.showModal) visor.showModal(); else visor.setAttribute('open', ''); }
+    function cerrar() { if (visor.close) visor.close(); else visor.removeAttribute('open'); }
+    visor.querySelector('.cerrar').onclick = cerrar;
+    visor.querySelector('.ant').onclick = function () { mostrar(actual - 1); };
+    visor.querySelector('.sig').onclick = function () { mostrar(actual + 1); };
+    visor.addEventListener('click', function (e) { if (e.target === visor || e.target.tagName === 'FIGURE') cerrar(); });
+    document.addEventListener('keydown', function (e) {
+      if (!visor.open) return;
+      if (e.key === 'ArrowLeft') mostrar(actual - 1);
+      if (e.key === 'ArrowRight') mostrar(actual + 1);
     });
-
-    let sx = 0, dx = 0, vp = car.querySelector('.c-viewport');
-    vp.addEventListener('touchstart', e=>{ sx = e.touches[0].clientX; dx=0; }, {passive:true});
-    vp.addEventListener('touchmove',  e=>{ dx = e.touches[0].clientX - sx; }, {passive:true});
-    vp.addEventListener('touchend',  ()=>{ if(Math.abs(dx) > 40) go(i + (dx<0 ? 1 : -1)); });
-  })();
-  </script>
-
-  <!-- Año dinámico del footer -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-  <!-- Mapa: abre Apple Maps en iOS y Google Maps en otros -->
-  <script>
-  (function(){
-    var address   = 'Av. Paseo de las Palmas 260-A-Segundo piso, Lomas - Virreyes, Lomas de Chapultepec, Miguel Hidalgo, 11000 Ciudad de México, CDMX';
-    var googleURL = 'https://maps.app.goo.gl/RFWnkcmC7BvtQfgcA';
-    var appleURL  = 'http://maps.apple.com/?q=' + encodeURIComponent(address);
-
-    var ua = navigator.userAgent || navigator.vendor || window.opera;
-    var isIOS = /iPad|iPhone|iPod/.test(ua);
-
-    var btn = document.getElementById('mapBtn');
-    if (btn) btn.href = isIOS ? appleURL : googleURL;
+    var x0 = 0;
+    visor.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    visor.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 45) mostrar(actual + (dx < 0 ? 1 : -1)); });
   })();
   </script>
 </body>
