@@ -160,6 +160,14 @@
     body { padding-bottom: 76px; }
 
     @media (min-width: 760px) {
+      /* Tableta: portada y «¡Hola!» en dos columnas, como en la computadora */
+      .portada { grid-template-columns: 1fr 1fr; align-items: center; gap: 32px; padding-top: 16px; padding-bottom: 56px; }
+      .portada h1 { font-size: clamp(64px, 12vw, 132px); }
+      .mechon:nth-child(1) { height: clamp(300px, 50vw, 560px); }
+      .mechon:nth-child(2) { height: clamp(240px, 41vw, 460px); }
+      .mechon:nth-child(3) { height: clamp(190px, 33vw, 370px); }
+      .sobre { grid-template-columns: minmax(260px, 340px) 1fr; gap: 44px; }
+      .barra nav { gap: 18px; }
       .galeria { grid-template-columns: repeat(3, 1fr); gap: 12px; }
       .dos { grid-template-columns: 1fr 1fr; }
       .servicios { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; border-top: 0; }
@@ -170,7 +178,9 @@
     @media (min-width: 980px) {
       body { padding-bottom: 0; }
       .fija { display: none; }
-      .portada { grid-template-columns: 1fr 1.05fr; align-items: center; padding-top: 24px; padding-bottom: 72px; }
+      .portada { grid-template-columns: 1fr 1.05fr; align-items: center; gap: 28px; padding-top: 24px; padding-bottom: 72px; }
+      .portada h1 { font-size: 132px; }
+      .barra nav { gap: 22px; }
       .mechon:nth-child(1) { height: 560px; }
       .mechon:nth-child(2) { height: 460px; }
       .mechon:nth-child(3) { height: 370px; }
@@ -179,10 +189,16 @@
       section { padding: 84px 0; }
       .pasos { grid-template-columns: repeat(3, 1fr); gap: 32px; }
     }
-    @media (max-width: 979px) { .barra nav .menu, .barra nav .boton { display: none; } }
+    @media (max-width: 759px) { .barra nav .menu, .barra nav .boton { display: none; } }
     /* En el celular la barra de abajo aparece cuando ya no se ven los botones de la portada */
     .fija { transform: translateY(110%); transition: transform .3s ease; }
     .fija.visible { transform: none; }
+    /* En la tableta no ocupa todo el ancho: es una píldora en la esquina */
+    @media (min-width: 760px) and (max-width: 979px) {
+      .fija { left: auto; right: 20px; bottom: calc(18px + env(safe-area-inset-bottom)); grid-template-columns: auto auto; padding: 7px;
+        border: 1px solid rgba(185, 154, 135, .6); border-radius: 999px; transform: translateY(calc(100% + 60px)); }
+      .fija .boton.lleno { padding: 0 28px; }
+    }
     @media (prefers-reduced-motion: reduce) { .fija { transition: none; } }
   </style>
 </head>
