@@ -5,47 +5,116 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reservar cita · Faby Villegas Stylist</title>
 <meta name="theme-color" content="#F3E9DB">
-<style>
-  html, body { margin: 0; height: 100%; background: #F8F6F2; }
-  body { display: flex; flex-direction: column; font-family: Lato, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #3a3a3a; }
-  header { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 6px 12px; background: #F3E9DB; border-bottom: 1px solid #E7E2D7; }
-  header img { display: block; height: 46px; width: auto; }
-  main { position: relative; flex: 1 1 auto; min-height: 0; overflow: auto; -webkit-overflow-scrolling: touch; }
-  iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
-  #cargando { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: #F8F6F2; transition: opacity .35s; }
-  #cargando.fuera { opacity: 0; pointer-events: none; }
+<style id="espera-css">
+  html, body { margin: 0; background: #F8F6F2; }
+  body { font-family: Lato, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #3a3a3a; }
+  .espera-logo { display: flex; justify-content: center; padding: 6px 12px; background: #F3E9DB; border-bottom: 1px solid #E7E2D7; }
+  .espera-logo img { display: block; height: 46px; width: auto; }
+  .espera { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center; }
   .giro { width: 34px; height: 34px; border-radius: 50%; border: 3px solid #E7E2D7; border-top-color: #8A6A57; animation: giro .9s linear infinite; }
   @keyframes giro { to { transform: rotate(360deg); } }
-  #cargando p { margin: 0; font-size: 15px; color: #656565; }
-  #otra { display: none; color: #8A6A57; font-size: 14px; }
+  .espera p { margin: 0; font-size: 15px; color: #656565; max-width: 32ch; }
+  .espera button { font: inherit; font-size: 15px; padding: 10px 20px; border-radius: 999px; border: 1px solid #8A6A57; background: #8A6A57; color: #fff; }
+  .espera a { color: #8A6A57; font-size: 14px; }
 </style>
 </head>
 <body>
-<header><a href="./" aria-label="Faby Villegas Stylist"><img src="assets/logo.svg" alt="Faby Villegas Stylist" onerror="this.style.display='none'"></a></header>
-<main>
-  <iframe id="agenda" title="Reservar cita" allow="clipboard-write"></iframe>
-  <div id="cargando"><div class="giro"></div><p>Cargando la agenda…</p><a id="otra" href="#">¿No carga? Ábrela aquí</a></div>
-</main>
+<div class="espera-logo"><a href="./" aria-label="Faby Villegas Stylist"><img src="assets/logo.svg" alt="Faby Villegas Stylist" onerror="this.style.display='none'"></a></div>
+<div class="espera" id="espera"><div class="giro"></div><p>Cargando la agenda…</p></div>
 <script>
+(function () {
   // Página creada por la agenda de citas. Si cambias de app, vuelve a copiar este código desde Ajustes.
-  // Primero abre la dirección normal de la agenda. Si en unos segundos no contesta (en algunos teléfonos Google
-  // muestra «No se pudo abrir el archivo»), prueba la otra forma de la misma dirección.
+  // Trae la página de reservas de la app y la muestra aquí. Las llamadas van con fetch, sin la página de Google.
   var DIRECCIONES = ["https://script.google.com/macros/s/AKfycbwowJ3k2cBFWFHUZ8AM5Bd_XrgIrCSljmaWm_5xuC5tIegP883ARMalUiOZt8CNqwsc/exec","https://script.google.com/a/~/macros/s/AKfycbwowJ3k2cBFWFHUZ8AM5Bd_XrgIrCSljmaWm_5xuC5tIegP883ARMalUiOZt8CNqwsc/exec"];
-  var marco = document.getElementById("agenda"), carga = document.getElementById("cargando"), enlace = document.getElementById("otra");
-  var intento = 0, abrio = false, reloj = null;
-  function abrir() { var destino = DIRECCIONES[intento] + (location.search || ""); marco.src = destino; enlace.href = destino; }
-  function listo() { if (carga.className) return; carga.className = "fuera"; setTimeout(function () { carga.style.display = "none"; }, 400); }
-  window.addEventListener("message", function (e) { var d = e.data; if (d && d.tipo === "agenda-citas") { abrio = true; clearTimeout(reloj); listo(); } });
-  marco.addEventListener("load", function () {
-    if (abrio) return;
-    clearTimeout(reloj);
-    reloj = setTimeout(function () {
-      if (abrio) return;
-      if (intento < DIRECCIONES.length - 1) { intento++; abrir(); } else listo();
-    }, 6000);
-  });
-  abrir();
-  setTimeout(function () { enlace.style.display = "block"; }, 15000);
+  var usar = 0, precarga = {}, ESCRIBE = { crearSolicitud: 1, aceptarPropuesta: 1 };
+  var SIN_RED = "No se pudo conectar con la agenda. Revisa tu internet e inténtalo de nuevo.";
+  var q = {}; new URLSearchParams(location.search).forEach(function (v, k) { if (!(k in q)) q[k] = v; });
+
+  function pedir(fn, args, i) {
+    var url = DIRECCIONES[i] + "?api=" + encodeURIComponent(fn) + (args.length ? "&a=" + encodeURIComponent(JSON.stringify(args)) : "") +
+      "&_=" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    return fetch(url, { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
+      if (!d || typeof d !== "object" || !("ok" in d)) throw new Error(SIN_RED);
+      return d;
+    });
+  }
+  // Si una dirección no contesta, prueba la otra (no al guardar, para no mandar dos veces la misma cita).
+  function conOtra(fn, args) {
+    return pedir(fn, args, usar).catch(function () {
+      if (ESCRIBE[fn] || DIRECCIONES.length < 2) throw new Error(SIN_RED);
+      var otra = usar ? 0 : 1;
+      return pedir(fn, args, otra).then(function (d) { usar = otra; return d; }, function () { throw new Error(SIN_RED); });
+    });
+  }
+  function llamar(fn, args) {
+    var clave = fn + JSON.stringify(args), pre = precarga[clave];
+    delete precarga[clave];
+    return (pre || conOtra(fn, args)).then(function (d) {
+      if (d.ok) return d.r;
+      throw new Error(d.error || "Ocurrió un error.");
+    });
+  }
+  // Lo mismo que google.script.run y google.script.url, para que la página de reservas funcione igual que en Google
+  function corredor(bien, mal) {
+    var r = {
+      withSuccessHandler: function (f) { return corredor(f, mal); },
+      withFailureHandler: function (f) { return corredor(bien, f); },
+      withUserObject: function () { return r; }
+    };
+    return new Proxy(r, { get: function (t, k) {
+      if (k in t || typeof k !== "string") return t[k];
+      return function () {
+        llamar(k, Array.prototype.slice.call(arguments)).then(function (x) { if (bien) bien(x); }, function (e) { if (mal) mal(e); });
+      };
+    } });
+  }
+  var parametros = {}; Object.keys(q).forEach(function (k) { parametros[k] = [q[k]]; });
+  window.google = { script: {
+    run: corredor(null, null),
+    url: { getLocation: function (cb) { setTimeout(function () { cb({ hash: location.hash.slice(1), parameter: q, parameters: parametros }); }, 0); } },
+    host: { close: function () {}, setHeight: function () {}, setWidth: function () {}, editor: { focus: function () {} } }
+  } };
+
+  // Pone la página de reservas en lugar del aviso de «Cargando» y corre su código
+  function poner(html) {
+    var doc = new DOMParser().parseFromString(html, "text/html");
+    var codigo = function (raiz) { return Array.prototype.map.call(raiz.querySelectorAll("script"), function (s) { var t = s.textContent; s.parentNode.removeChild(s); return t; }); };
+    var deHead = codigo(doc.head), deBody = codigo(doc.body);
+    var correr = function (textos, donde) { textos.forEach(function (t) { var s = document.createElement("script"); s.textContent = t; donde.appendChild(s); }); };
+    ["espera-css"].forEach(function (id) { var n = document.getElementById(id); if (n) n.parentNode.removeChild(n); });
+    Array.prototype.slice.call(doc.head.children).forEach(function (n) {
+      if (/^(TITLE|META)$/.test(n.tagName)) return;
+      document.head.appendChild(document.importNode(n, true));
+    });
+    Array.prototype.forEach.call(doc.documentElement.attributes, function (a) { document.documentElement.setAttribute(a.name, a.value); });
+    Array.prototype.forEach.call(doc.body.attributes, function (a) { document.body.setAttribute(a.name, a.value); });
+    correr(deHead, document.head);
+    document.body.innerHTML = "";
+    Array.prototype.slice.call(doc.body.childNodes).forEach(function (n) { document.body.appendChild(document.importNode(n, true)); });
+    correr(deBody, document.body);
+    document.dispatchEvent(new Event("DOMContentLoaded"));
+  }
+  function fallo() {
+    document.getElementById("espera").innerHTML = "<p>No se pudo abrir la agenda. Revisa tu internet e inténtalo de nuevo.</p>" +
+      "<button type=\"button\" onclick=\"location.reload()\">Volver a intentar</button>";
+  }
+  function tiempo(p, ms) { return Promise.race([p, new Promise(function (_, no) { setTimeout(function () { no(new Error(SIN_RED)); }, ms); })]); }
+  // Al abrir: la página y sus primeros datos a la vez (la cita del enlace, o los servicios y horarios)
+  var primera = q.c && q.t ? ["getCita", [q.c, q.t]] : ["getInfoPublica", [true]];
+  function arrancar(i) {
+    var datos = pedir(primera[0], primera[1], i);
+    datos.catch(function () {});
+    tiempo(pedir("pagina", [], i), 15000).then(function (d) {
+      if (!d.ok) throw new Error(d.error);
+      usar = i;
+      precarga[primera[0] + JSON.stringify(primera[1])] = datos.catch(function () { return conOtra(primera[0], primera[1]); });
+      poner(d.r);
+    }).catch(function () {
+      if (i + 1 < DIRECCIONES.length) arrancar(i + 1); else fallo();
+    });
+  }
+  arrancar(0);
+})();
 </script>
 </body>
 </html>
