@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Aviso de privacidad · Hair Artist Styling Studio · Faby Villegas</title>
+  <meta name="description" content="Aviso de privacidad de Hair Artist Styling Studio · Faby Villegas: qué datos usamos, para qué y cómo ejercer tus derechos.">
+  <meta name="theme-color" content="#F7F1EE">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --leche: #F7F1EE; --arena: #EFE4DD; --nuez: #B99A87; --espresso: #3E2C24; --suave: #6E5A50; --blanco: #FFFCFA;
+      --display: "Italiana", "Didot", "Bodoni 72", Georgia, serif;
+      --texto: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body { margin: 0; background: var(--leche); color: var(--espresso); font: 400 17px/1.65 var(--texto); }
+    a { color: inherit; text-underline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--espresso); outline-offset: 3px; border-radius: 2px; }
+    .envoltura { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    .barra { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+    .barra img { display: block; width: 66px; height: auto; }
+    .barra a.volver { font-size: 15px; color: var(--suave); text-decoration: none; }
+    .barra a.volver:hover { color: var(--espresso); }
+    header.titulo { padding: 18px 0 26px; border-bottom: 1px solid var(--nuez); }
+    h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; letter-spacing: .01em; }
+    h1 { font-size: clamp(42px, 9vw, 64px); line-height: 1; }
+    .sub { margin: 12px 0 0; color: var(--suave); }
+    .fecha { margin: 6px 0 0; font-size: 15px; color: var(--suave); }
+    nav.indice { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; font-size: 15px; }
+    section { padding: 34px 0 6px; }
+    section + section { border-top: 1px solid rgba(185, 154, 135, .55); margin-top: 26px; }
+    h2 { font-size: clamp(32px, 6vw, 42px); line-height: 1.1; }
+    h3 { font-size: 25px; line-height: 1.2; margin-top: 26px; }
+    p, ul, ol { margin: 10px 0 0; max-width: 64ch; }
+    ul, ol { padding-left: 22px; }
+    li + li { margin-top: 4px; }
+    .grupo { margin: 12px 0 0; padding: 14px 16px; background: var(--arena); border-radius: 2px 2px 22px 22px; }
+    .grupo b { display: block; font-weight: 500; }
+    .grupo ul { margin-top: 6px; }
+    .contacto { list-style: none; padding: 0; }
+    footer { margin-top: 44px; padding: 26px 0 40px; border-top: 1px solid rgba(185, 154, 135, .55); font-size: 15px; color: var(--suave); }
+    footer p { margin: 4px 0 0; }
+    @media print { .barra a.volver, nav.indice { display: none; } body { background: #fff; } }
+  </style>
+</head>
+<body>
+  <div class="envoltura barra">
+    <a href="./" aria-label="Faby Villegas, inicio"><img src="assets/logo.svg" alt="Faby Villegas" onerror="this.style.display='none'"></a>
+    <a class="volver" href="./">Volver a la página</a>
+  </div>
+
+  <main class="envoltura">
+    <header class="titulo">
+      <h1>Aviso de privacidad</h1>
+      <p class="sub">Hair Artist Styling Studio · Faby Villegas</p>
+      <p class="fecha">Última actualización: 25 de noviembre de 2026</p>
+      <p>Aquí te explicamos qué datos personales usamos, para qué y cómo puedes decidir sobre ellos, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
+      <nav class="indice" aria-label="Partes de este aviso">
+        <a href="#responsables">Quiénes somos</a>
+        <a href="#clientas">Clientas</a>
+        <a href="#colaboradoras">Colaboradoras</a>
+        <a href="#derechos">Tus derechos</a>
+        <a href="#cambios">Cambios</a>
+      </nav>
+    </header>
+
+    <section id="responsables" aria-labelledby="tResp">
+      <h2 id="tResp">Quiénes somos</h2>
+      <p><b>Responsables de tus datos:</b> Fabiola Villegas y Jorge Alejandro Leal Reyes (Hair Artist Styling Studio · Faby Villegas).</p>
+      <p><b>Domicilio:</b> Av. Paseo de las Palmas 260-A, segundo piso, Lomas - Virreyes, Lomas de Chapultepec, Miguel Hidalgo, 11000, Ciudad de México.</p>
+      <p><b>Contacto para todo lo relacionado con tus datos personales</b> (lo atienden Fabiola Villegas y Jorge Alejandro Leal Reyes):</p>
+      <ul class="contacto">
+        <li>WhatsApp: <a href="https://wa.me/525561117810">55 6111 7810</a></li>
+        <li>Correo: <a href="mailto:fabigar18@gmail.com">fabigar18@gmail.com</a> o <a href="mailto:yoveck4@gmail.com">yoveck4@gmail.com</a></li>
+      </ul>
+    </section>
+
+    <section id="clientas" aria-labelledby="tCli">
+      <h2 id="tCli">Si eres clienta</h2>
+
+      <h3>Qué datos usamos</h3>
+      <ul>
+        <li>Tu nombre y tu teléfono (WhatsApp).</li>
+        <li>Tu correo electrónico, si lo escribes.</li>
+        <li>Los datos de tu cita: servicio, fecha, hora y los detalles que escribas.</li>
+        <li>Si el servicio es a domicilio, la dirección o ubicación que nos compartas.</li>
+        <li>Tu historial en el salón: citas, servicios y productos, lo que pagaste, la forma de pago y las propinas. No guardamos números de tarjeta ni de cuenta.</li>
+        <li>Fotos de tu peinado o de tu color, solo si nos das permiso (lee «Fotos»).</li>
+      </ul>
+      <p><b>No pedimos datos sensibles</b>, como los de salud. Por favor no los escribas en los detalles de tu cita.</p>
+
+      <h3>Para qué los usamos</h3>
+      <div class="grupo">
+        <b>Para atenderte (son necesarias para darte el servicio)</b>
+        <ul>
+          <li>Agendar, confirmar, cambiar o cancelar tu cita.</li>
+          <li>Enviarte por WhatsApp la confirmación, la ubicación y el enlace con los detalles de tu cita; y, si nos diste tu correo, la invitación para tu calendario.</li>
+          <li>Recordarte tu cita.</li>
+          <li>Atenderte, saber qué servicios te hemos hecho y recomendarte.</li>
+          <li>Cobrar y llevar las cuentas del salón, incluido lo que se paga a la colaboradora que te atendió.</li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <b>Adicionales (necesitan tu permiso; puedes decir que no y tu cita no cambia)</b>
+        <ul>
+          <li>Invitarte por WhatsApp a volver cuando tengas tiempo sin venir, y mandarte promociones de temporada.</li>
+          <li>Publicar fotos de tu peinado o color en nuestra página web y en nuestras redes sociales.</li>
+        </ul>
+      </div>
+      <p>Si no quieres invitaciones ni promociones, escríbenos «No promociones» por WhatsApp al 55 6111 7810 o a cualquiera de los correos de arriba, y dejamos de mandártelas.</p>
+
+      <h3>Fotos</h3>
+      <p>Solo publicamos fotos en las que se te reconoce si nos das tu permiso expreso, por ejemplo por WhatsApp. Puedes retirarlo cuando quieras: escríbenos y quitamos la foto de nuestra página y de nuestras redes.</p>
+
+      <h3>Con quién compartimos tus datos</h3>
+      <p>No vendemos tus datos ni los compartimos con otras empresas para sus propios fines. La colaboradora que te atiende ve tu nombre y los datos de tu cita. Para guardar y enviar la información usamos servicios de Google (Calendar, Hojas de cálculo, Drive y Gmail), WhatsApp y GitHub, donde está publicada esta página; ellos guardan la información por nosotros.</p>
+
+      <h3>En tu teléfono</h3>
+      <p>La página para agendar puede recordar en tu propio teléfono tu nombre, teléfono y correo, para que no los escribas otra vez. Se quedan solo en ese teléfono; si quieres quitarlos, borra los datos de navegación de esta página. Nuestra página no usa cookies de publicidad ni de rastreo.</p>
+
+      <h3>Cuánto tiempo los guardamos</h3>
+      <p>Mientras seas clienta del salón. Si nos pides borrarlos, los eliminamos, salvo lo que la ley nos obligue a conservar, como los registros de cobros.</p>
+    </section>
+
+    <section id="colaboradoras" aria-labelledby="tCol">
+      <h2 id="tCol">Si trabajas con nosotros</h2>
+
+      <h3>Qué datos usamos</h3>
+      <p>Tu nombre, tu WhatsApp, tu puesto, tu forma de pago (sueldo, pago por día o porcentajes de comisión), las citas y clientas que atiendes, y tus comisiones, propinas, bonos, adelantos, descuentos y pagos.</p>
+
+      <h3>Para qué</h3>
+      <ul>
+        <li>Organizar la agenda y asignarte citas.</li>
+        <li>Calcular y pagarte tu sueldo, tus comisiones y tus propinas.</li>
+        <li>Enviarte por WhatsApp tu ticket de cada semana.</li>
+        <li>Llevar las cuentas del salón.</li>
+      </ul>
+      <p>Lo que se te paga solo lo ven los responsables; no se comparte con tus compañeras ni con las clientas.</p>
+
+      <h3>Tu consentimiento</h3>
+      <p>Como estos datos incluyen lo que ganas, te pedimos tu consentimiento expreso: basta con que respondas «Acepto» al mensaje con el que te enviamos este aviso.</p>
+    </section>
+
+    <section id="derechos" aria-labelledby="tDer">
+      <h2 id="tDer">Tus derechos</h2>
+      <p>Puedes <b>acceder</b> a tus datos, <b>corregirlos</b>, pedir que los <b>cancelemos</b> u <b>oponerte</b> a que los usemos (derechos ARCO). También puedes <b>revocar tu consentimiento</b> en cualquier momento; eso no cambia lo que ya se hizo antes.</p>
+      <p>Para hacerlo, escríbenos a <a href="mailto:fabigar18@gmail.com">fabigar18@gmail.com</a> o <a href="mailto:yoveck4@gmail.com">yoveck4@gmail.com</a>, o por WhatsApp al <a href="https://wa.me/525561117810">55 6111 7810</a>, con:</p>
+      <ol>
+        <li>Tu nombre y cómo responderte.</li>
+        <li>Una identificación, para confirmar que eres tú.</li>
+        <li>Qué quieres hacer y sobre qué datos.</li>
+        <li>Cualquier dato que nos ayude a encontrarlos, como la fecha de tu cita.</li>
+      </ol>
+      <p>Te respondemos en un máximo de 20 días y, si procede, lo hacemos efectivo dentro de los 15 días siguientes. Para dejar de recibir promociones no necesitas identificación: basta con escribirnos «No promociones».</p>
+      <p>Si consideras que no atendimos bien tu solicitud, puedes acudir a la Secretaría Anticorrupción y Buen Gobierno, la autoridad que vigila esta ley.</p>
+    </section>
+
+    <section id="cambios" aria-labelledby="tCam">
+      <h2 id="tCam">Cambios a este aviso</h2>
+      <p>Si cambiamos este aviso, publicaremos la nueva versión en esta misma página, con su fecha. Si el cambio es importante, también te avisaremos por WhatsApp.</p>
+    </section>
+  </main>
+
+  <footer class="envoltura">
+    <p><a href="./">Volver a la página</a> · <a href="reservar.html">Agendar cita</a></p>
+    <p>© <span id="anio">2026</span> Hair Artist Styling Studio · Fabiola Villegas</p>
+  </footer>
+  <script>document.getElementById('anio').textContent = new Date().getFullYear();</script>
+</body>
+</html>
